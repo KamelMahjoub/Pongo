@@ -7,8 +7,10 @@ public class Player : MonoBehaviour
 {
     private float speed;
     private float verticalInput;
-    [SerializeField]
+    
+    [SerializeField] 
     private bool isPlayerOne;
+    
     private Rigidbody2D playerRb;
 
 
@@ -22,14 +24,15 @@ public class Player : MonoBehaviour
     Move();
  }
 
-
- public void Init()
+//Initializes the variables/properties
+ private void Init()
  {
      speed = 8.5f;
      playerRb = GetComponent<Rigidbody2D>(); 
  }
  
- public void Move()
+ //Checks for the player's type and moves the game object accordingly
+ private void Move()
  {
      if (CheckPlayerOne())
      {
@@ -44,12 +47,14 @@ public class Player : MonoBehaviour
       
  }
 
- public bool CheckPlayerOne()
+ //Checks if the player is player number one
+ private bool CheckPlayerOne()
  {
      return isPlayerOne;
  }
 
- public Vector2 SetVelocity()
+ //Create a new Vector2 as the position that the player/paddle will move to 
+ private Vector2 SetVelocity()
  {
      return new Vector2(playerRb.velocity.x , verticalInput * speed);
  }
