@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a42b5fc587bf764ab93ce84c8be1748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerOne: 1
 --- !u!1 &367941051
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a42b5fc587bf764ab93ce84c8be1748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerOne: 0
 --- !u!1 &1388216007
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +922,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

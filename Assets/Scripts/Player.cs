@@ -7,22 +7,52 @@ public class Player : MonoBehaviour
 {
     private float speed;
     private float verticalInput;
-    private bool isPlayer1;
+    [SerializeField]
+    private bool isPlayerOne;
     private Rigidbody2D playerRb;
 
 
  private void Start()
- { 
-     speed = 8;
-    playerRb = GetComponent<Rigidbody2D>();
+ {
+     Init();
  }
 
  private void Update()
  {
-     verticalInput = Input.GetAxis("Vertical");
-     playerRb.velocity = new Vector2(playerRb.velocity.x , verticalInput * speed);
+    Move();
+ }
+
+
+ public void Init()
+ {
+     speed = 8.5f;
+     playerRb = GetComponent<Rigidbody2D>(); 
  }
  
+ public void Move()
+ {
+     if (CheckPlayerOne())
+     {
+         verticalInput = Input.GetAxis("Vertical");
+         playerRb.velocity = SetVelocity();
+     }
+     else
+     {
+         verticalInput = Input.GetAxis("Vertical2");
+         playerRb.velocity = SetVelocity();
+     }
+      
+ }
+
+ public bool CheckPlayerOne()
+ {
+     return isPlayerOne;
+ }
+
+ public Vector2 SetVelocity()
+ {
+     return new Vector2(playerRb.velocity.x , verticalInput * speed);
+ }
  
  
  
