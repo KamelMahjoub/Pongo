@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class BouncySurface : MonoBehaviour
 {
-    private float bouncePower = 0.001f;
+    private float bouncePower;
     private Ball ball;
+
+    private void Awake()
+    {
+        bouncePower = 0.001f;
+    }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         ball = col.gameObject.GetComponent<Ball>();
+        
         if (ball != null)
         {
             Vector2 normal = col.contacts[0].normal;

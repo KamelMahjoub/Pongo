@@ -23,11 +23,6 @@ public class Ball : MonoBehaviour
        LaunchBall(); 
     }
 
-    private void FixedUpdate()
-    {
-        Vector2 x = ballRb.velocity;
-    }
-
     private void Init()
     {
         ballRb = GetComponent<Rigidbody2D>();
