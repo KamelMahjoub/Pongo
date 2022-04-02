@@ -1556,7 +1556,7 @@ GameObject:
   - component: {fileID: 1050026198}
   - component: {fileID: 1050026197}
   m_Layer: 0
-  m_Name: _MatchManager
+  m_Name: MatchManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,6 +2051,7 @@ GameObject:
   - component: {fileID: 1388216010}
   - component: {fileID: 1388216009}
   - component: {fileID: 1388216008}
+  - component: {fileID: 1388216011}
   m_Layer: 0
   m_Name: Player1Goal
   m_TagString: Untagged
@@ -2068,7 +2069,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2149,6 +2150,19 @@ Transform:
   m_Father: {fileID: 1662298478}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1388216011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388216007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7c76451da7e5e4682afba2c9a127fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchManager: {fileID: 1050026197}
 --- !u!1 &1439344079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,6 +2547,7 @@ GameObject:
   - component: {fileID: 1768144848}
   - component: {fileID: 1768144850}
   - component: {fileID: 1768144849}
+  - component: {fileID: 1768144851}
   m_Layer: 0
   m_Name: Player2Goal
   m_TagString: Untagged
@@ -2564,7 +2579,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2631,6 +2646,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1768144851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768144847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7c76451da7e5e4682afba2c9a127fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchManager: {fileID: 1050026197}
 --- !u!1 &1803454288
 GameObject:
   m_ObjectHideFlags: 0

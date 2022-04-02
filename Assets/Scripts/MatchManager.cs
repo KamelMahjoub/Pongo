@@ -21,13 +21,45 @@ public class MatchManager : MonoBehaviour
         Init();
     }
 
+    private void Update()
+    {
+        
+    }
+
     private void Init()
     {
         playerOnePoints = 0;
         playerTwoPoints = 0;
-        
-        playerOneScore.text = Random.Range(0,1000).ToString();
-        playerTwoScore.text = Random.Range(0,1000).ToString();
-        
+
+        DisplayScore();
     }
+
+
+    public void AddPoint(int playerNb)
+    {
+        if(playerNb==1)
+            playerOnePoints++;
+        else
+            playerTwoPoints++;
+        
+        DisplayScore();
+    }
+
+    
+    private void DisplayPlayerOneScore()
+    {
+        playerOneScore.text = "" + playerOnePoints;
+    }
+    
+    private void DisplayPlayerTwoScore()
+    {
+        playerTwoScore.text = "" + playerTwoPoints;
+    }
+
+    private void DisplayScore()
+    {
+        DisplayPlayerOneScore();
+        DisplayPlayerTwoScore();
+    }
+
 }
