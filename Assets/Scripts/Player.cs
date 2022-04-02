@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRb;
 
 
- private void Start()
+ private void Awake()
  {
      Init();
  }
