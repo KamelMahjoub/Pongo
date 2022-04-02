@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 262048883}
   - component: {fileID: 262048882}
   - component: {fileID: 262048881}
+  - component: {fileID: 262048884}
   m_Layer: 0
   m_Name: BottomWall
   m_TagString: Wall
@@ -232,6 +233,18 @@ Transform:
   m_Father: {fileID: 1646680560}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &262048884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262048880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326129665
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +258,7 @@ GameObject:
   - component: {fileID: 326129669}
   - component: {fileID: 326129668}
   - component: {fileID: 326129670}
+  - component: {fileID: 326129671}
   m_Layer: 0
   m_Name: 'Player1 '
   m_TagString: Player
@@ -334,7 +348,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
@@ -377,6 +391,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerOne: 1
+--- !u!114 &326129671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326129665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &367941051
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +414,7 @@ GameObject:
   - component: {fileID: 367941054}
   - component: {fileID: 367941053}
   - component: {fileID: 367941052}
+  - component: {fileID: 367941055}
   m_Layer: 0
   m_Name: UpperWall
   m_TagString: Wall
@@ -486,6 +513,18 @@ Transform:
   m_Father: {fileID: 1646680560}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &367941055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367941051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +621,7 @@ GameObject:
   - component: {fileID: 1370180127}
   - component: {fileID: 1370180126}
   - component: {fileID: 1370180128}
+  - component: {fileID: 1370180129}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -671,7 +711,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
@@ -714,6 +754,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerOne: 0
+--- !u!114 &1370180129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370180123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1388216007
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,14 +972,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 6109c72a98e66bb48a6d20b00f56e2fd, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1439344083
 BoxCollider2D:
@@ -967,6 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3028c1bc6c9dc3940afaabea1c78a4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1646680559
 GameObject:
   m_ObjectHideFlags: 0

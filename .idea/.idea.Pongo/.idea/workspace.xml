@@ -7,6 +7,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -56,7 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648825718957</updated>
       <workItem from="1648825723214" duration="13234000" />
-      <workItem from="1648905570158" duration="3352000" />
+      <workItem from="1648905570158" duration="9345000" />
     </task>
     <servers />
   </component>
