@@ -28,7 +28,7 @@ public class Goal : MonoBehaviour
         playerOneGoal = "Player1Goal";
     }
 
-    //Whenever the ball collides with a goal, adds a point to the scorer
+    //Whenever the ball collides with a goal, adds a point to the scorer and spawns another ball
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (gameObject.name == playerOneGoal)
@@ -39,5 +39,6 @@ public class Goal : MonoBehaviour
         {
             matchManager.AddPoint(playerOneID);
         }
+        matchManager.SpawnBall();
     }
 }

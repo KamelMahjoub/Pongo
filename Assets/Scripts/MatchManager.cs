@@ -12,14 +12,30 @@ public class MatchManager : MonoBehaviour
     private TextMeshProUGUI playerOneScore;
     [SerializeField]
     private TextMeshProUGUI playerTwoScore;
+    
+    [Header("Match Ball")]
+    [SerializeField] 
+    private GameObject ball;
+    [SerializeField] 
+    private Ball ballScript;
 
     private int playerOnePoints;
     private int playerTwoPoints;
+
+    private int playerOneID =1;
+
+    private float startingXPosition;
+    private float startingYPosition;
     
 
     private void Awake()
     {
         Init();
+    }
+
+    private void Start()
+    {
+        SpawnBall();
     }
 
     //Initializes the variables/properties
@@ -28,17 +44,23 @@ public class MatchManager : MonoBehaviour
         playerOnePoints = 0;
         playerTwoPoints = 0;
 
+        startingXPosition = 0;
+        startingYPosition = 0;
+
         DisplayScore();
     }
 
     //Adds a point to the specified player
     public void AddPoint(int playerNb)
     {
-        if(playerNb==1)
+        if (playerNb == playerOneID)
+        {
             playerOnePoints++;
+        }
         else
-            playerTwoPoints++;
-        
+        {
+            playerTwoPoints++; 
+        }
         DisplayScore();
     }
 
@@ -60,5 +82,19 @@ public class MatchManager : MonoBehaviour
         DisplayPlayerOneScore();
         DisplayPlayerTwoScore();
     }
+
+    //Sets the starting the position that the ball will spawn to
+    private Vector2 StartingPosition()
+    {
+        return new Vector2(startingXPosition, startingYPosition);
+    }
+
+    //Spawns the ball at the specified starting position
+    public void SpawnBall()
+    {
+        Instantiate(ball, StartingPosition(), ball.transform.rotation);
+    }
+
+  
 
 }

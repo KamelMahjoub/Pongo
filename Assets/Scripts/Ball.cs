@@ -2,19 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
-    
     [Header("Variables")]
     
     [SerializeField]
     private float speed;
-
-    private Rigidbody2D ballRb;
- 
-
+    
+    public Rigidbody2D ballRb;
+    
     private void Awake()
     {
        Init();
@@ -29,7 +28,7 @@ public class Ball : MonoBehaviour
     private void Init()
     {
         ballRb = GetComponent<Rigidbody2D>();
-        speed = 9f; 
+        speed = 6f; 
     }
     
     //Launches the ball in a random position
@@ -41,22 +40,45 @@ public class Ball : MonoBehaviour
     //Generates a random vector2 position that the ball will be launched to 
     private Vector2 RandomStartingPosition()
     {
-        float startingAxisPosition = 1;
+        float AxisPosition = RandomAxisPosition();
+        float startingXPosition = 1;
+        float startingYPosition = RandomYPosition();
         
-        return new Vector2(Random.Range(-startingAxisPosition, startingAxisPosition),
-            Random.Range(-startingAxisPosition, startingAxisPosition));
+        //if the axis position is > 0 , then the ball will go to the right; else it will go to the left.
+        if (AxisPosition > 0)
+        {
+            return new Vector2(startingXPosition, startingYPosition);
+        }
+        else
+        {
+            return new Vector2(-startingXPosition, startingYPosition);
+        }
+    }
+
+    // Generates a random value between -1 and 1
+    private float RandomAxisPosition()
+    {
+        float startingAxisPosition = 1;
+        return Random.Range(-startingAxisPosition, startingAxisPosition);
+    }
+
+    //Generates a random Y axis position 
+    private float RandomYPosition()
+    {
+        float yPosition = 0.2f;
+        return Random.Range(-yPosition, yPosition);
     }
 
     //a public AddForce method to enforce encapsulation on the private rigidbody component
     public void AddForce(Vector2 force)
     {
-        ballRb.AddForce(force);
+        ballRb.AddForce(force , ForceMode2D.Impulse);
     }
 
-    public void SpawnBall()
-    {
-        Instantiate()
-    }
+   
+    
+
+   
     
     
     

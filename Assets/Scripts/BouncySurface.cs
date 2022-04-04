@@ -10,8 +10,9 @@ public class BouncySurface : MonoBehaviour
 
     private void Awake()
     {
-        bouncePower = 0.001f;
+        bouncePower = 0.1f;
     }
+    
 
     //Adds a force whenever the ball collides with a wall or a player 
     private void OnCollisionEnter2D(Collision2D col)
@@ -20,8 +21,9 @@ public class BouncySurface : MonoBehaviour
         
         if (ball != null)
         {
-            Vector2 normal = col.contacts[0].normal;
+            Vector2 normal = col.GetContact(0).normal;
             ball.AddForce(-normal * bouncePower);
+            
         }
     }
 }
