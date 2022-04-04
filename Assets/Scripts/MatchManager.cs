@@ -7,36 +7,52 @@ using Random = UnityEngine.Random;
 
 public class MatchManager : MonoBehaviour
 {
+  
+    
     [Header("Scoreboard Components")]
+    [SerializeField] 
+    private GameObject scoreBoard;
     [SerializeField]
     private TextMeshProUGUI playerOneScore;
     [SerializeField]
     private TextMeshProUGUI playerTwoScore;
+  
+    [Header("Player Components")]
+    [SerializeField]
+    private GameObject playerOne;
+    [SerializeField]
+    private GameObject playerTwo;
+  
+    [Header("Field Components")]
+    [SerializeField] 
+    private GameObject middleLine;
     
+    [Header("Countdown Components")]
+    [SerializeField]
+    private TextMeshProUGUI startingCountdownText;
+
     [Header("Match Ball")]
     [SerializeField] 
     private GameObject ball;
     [SerializeField] 
     private Ball ballScript;
+    
 
     private int playerOnePoints;
     private int playerTwoPoints;
-
-    private int playerOneID =1;
-
+    private int playerOneID = 1;
+    
     private float startingXPosition;
     private float startingYPosition;
+    private float initialCountdown;
     
 
     private void Awake()
     {
         Init();
+        DisableMatchUI();
     }
-
-    private void Start()
-    {
-        SpawnBall();
-    }
+    
 
     //Initializes the variables/properties
     private void Init()
@@ -44,10 +60,17 @@ public class MatchManager : MonoBehaviour
         playerOnePoints = 0;
         playerTwoPoints = 0;
 
+        initialCountdown = 3;
+
         startingXPosition = 0;
         startingYPosition = 0;
 
         DisplayScore();
+    }
+
+    private void Update()
+    {
+        InitialCountdown();
     }
 
     //Adds a point to the specified player
@@ -63,7 +86,7 @@ public class MatchManager : MonoBehaviour
         }
         DisplayScore();
     }
-
+    
     //Displays the score of player one
     private void DisplayPlayerOneScore()
     {
@@ -75,10 +98,9 @@ public class MatchManager : MonoBehaviour
     {
         playerTwoScore.text = "" + playerTwoPoints;
     }
-
     //Displays both players scores
     private void DisplayScore()
-    {
+    {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
         DisplayPlayerOneScore();
         DisplayPlayerTwoScore();
     }
@@ -94,6 +116,46 @@ public class MatchManager : MonoBehaviour
     {
         Instantiate(ball, StartingPosition(), ball.transform.rotation);
     }
+
+    private void InitialCountdown()
+    {
+        bool isTimerRunning = true;
+        if (isTimerRunning)
+        {
+            if (initialCountdown > 0)
+            {
+                startingCountdownText.text = initialCountdown.ToString();
+                initialCountdown -= Time.deltaTime;
+            }
+            else
+            {
+                startingCountdownText.text = "Pong!";
+                initialCountdown = 0;
+                isTimerRunning = false;
+                EnableMatchUI();
+            }
+        }
+    }
+
+    //Disables the player gameobjects aswell as as the scoreboard and middle line. 
+    public void DisableMatchUI()
+    {
+        playerOne.SetActive(false);
+        playerTwo.SetActive(false);
+        scoreBoard.SetActive(false);
+        middleLine.SetActive(false);
+    }
+    
+    //Enables the player gameobjects aswell as as the scoreboard and middle line. 
+    public void EnableMatchUI()
+    {
+        playerOne.SetActive(true);
+        playerTwo.SetActive(true);
+        scoreBoard.SetActive(true);
+        middleLine.SetActive(true);
+    }
+    
+    
 
   
 
