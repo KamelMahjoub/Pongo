@@ -1558,6 +1558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1050026198}
+  - component: {fileID: 1050026199}
   - component: {fileID: 1050026197}
   m_Layer: 0
   m_Name: MatchManager
@@ -1575,9 +1576,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1050026196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18dd9ef56a498a45b106701011325d3, type: 3}
+  m_Script: {fileID: 11500000, guid: e30e5558ae0c12a4c8d0191abc165987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _managerScript: {fileID: 1050026199}
   scoreBoard: {fileID: 1167182036}
   playerOneScore: {fileID: 2075487949}
   playerTwoScore: {fileID: 417954321}
@@ -1585,8 +1587,6 @@ MonoBehaviour:
   playerTwo: {fileID: 1370180123}
   middleLine: {fileID: 728249963}
   startingCountdownText: {fileID: 2001817498}
-  ball: {fileID: 3960248616908346775, guid: 3aa725cd3d32a9341a8d9ec9b00769a6, type: 3}
-  ballScript: {fileID: 3960248616908346764, guid: 3aa725cd3d32a9341a8d9ec9b00769a6, type: 3}
 --- !u!4 &1050026198
 Transform:
   m_ObjectHideFlags: 0
@@ -1601,6 +1601,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1050026199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050026196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18dd9ef56a498a45b106701011325d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _matchUIManager: {fileID: 1050026197}
+  ball: {fileID: 3960248616908346775, guid: 3aa725cd3d32a9341a8d9ec9b00769a6, type: 3}
+  ballScript: {fileID: 3960248616908346764, guid: 3aa725cd3d32a9341a8d9ec9b00769a6, type: 3}
 --- !u!1 &1073240182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,7 +2189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c76451da7e5e4682afba2c9a127fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matchManager: {fileID: 1050026197}
+  matchManager: {fileID: 0}
 --- !u!1 &1494650577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,7 +2540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c76451da7e5e4682afba2c9a127fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matchManager: {fileID: 1050026197}
+  matchManager: {fileID: 0}
 --- !u!1 &1803454288
 GameObject:
   m_ObjectHideFlags: 0
