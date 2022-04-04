@@ -33,6 +33,12 @@ public class MatchManager : MonoBehaviour
         _matchUIManager.DisableMatchUI();
     }
     
+    
+    private void Update()
+    {
+        StartingCountdown();
+    }
+    
 
     //Initializes the variables/properties
     private void Init()
@@ -45,17 +51,13 @@ public class MatchManager : MonoBehaviour
         
         playerOneID = 1;
         
-        initialCountdown = 3;
+        initialCountdown = 4;
         
         startingXPosition = 0;
         startingYPosition = 0;
     }
 
-    private void Update()
-    {
-        StartingCountdown();
-    }
-
+    
     //Adds a point to the specified player
     public void AddPoint(int playerNb)
     {
@@ -69,7 +71,6 @@ public class MatchManager : MonoBehaviour
         }
         _matchUIManager.DisplayScore();
     }
-    
     
 
     //Sets the starting the position that the ball will spawn to
@@ -89,24 +90,36 @@ public class MatchManager : MonoBehaviour
         bool isTimerRunning = true;
         if (isTimerRunning)
         {
-            if (initialCountdown > 0)
+            if (initialCountdown > 1)
             {
-                _matchUIManager.ChangeCountdownText(initialCountdown.ToString());
+                _matchUIManager.ChangeCountdownText(GetSeconds(initialCountdown).ToString());
                 initialCountdown -= Time.deltaTime;
             }
             else
             {
                 _matchUIManager.ChangeCountdownText("Pong!");
-                initialCountdown = 0;
+                initialCountdown = 1;
                 isTimerRunning = false;
                 _matchUIManager.EnableMatchUI();
+                StartCoroutine(StartCountdownRoutine());
             }
         }
     }
+    
+    IEnumerator StartCountdownRoutine()
+    {
+        yield return new WaitForSeconds(1);
+        _matchUIManager.HideCountdownText();
+    }
 
-   
+    private int GetSeconds(float time)
+    {
+        return Mathf.FloorToInt(time % 60);
+    }
+
+
     
 
-  
+
 
 }

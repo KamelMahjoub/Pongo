@@ -35,6 +35,7 @@ public class MatchUIManager : MonoBehaviour
     private void Awake()
     {
         Init();
+        DisplayScore();
     }
 
     private void Init()
@@ -82,6 +83,11 @@ public class MatchUIManager : MonoBehaviour
     public void ChangeCountdownText(String textToDisplay)
     {
         startingCountdownText.text = textToDisplay;
+    }
+
+    public void HideCountdownText()
+    {
+        startingCountdownText.enabled = false;
     }
 
 
