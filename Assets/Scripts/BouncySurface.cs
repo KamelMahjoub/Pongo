@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class BouncySurface : MonoBehaviour
 {
+    
+    [Header("Variables")]
+    [SerializeField]
     private float bouncePower;
     private Ball ball;
-
-    private void Awake()
-    {
-        bouncePower = 0.1f;
-    }
     
 
     //Adds a force whenever the ball collides with a wall or a player 

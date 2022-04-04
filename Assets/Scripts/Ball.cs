@@ -28,7 +28,7 @@ public class Ball : MonoBehaviour
     private void Init()
     {
         ballRb = GetComponent<Rigidbody2D>();
-        speed = 6f; 
+        speed = 5f; 
     }
     
     //Launches the ball in a random position

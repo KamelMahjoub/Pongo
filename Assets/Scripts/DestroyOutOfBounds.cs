@@ -20,6 +20,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         DestroyBall();
     }
 
+    //Initializes the variables/properties
     private void Init()
     {
         topBound = 8f;
@@ -27,7 +28,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         leftBound = -10f;
         rightBound = 10;
     }
-
+    //Checks if the position of the ball is outside the specified values
     private void DestroyBall()
     {
         Vector2 ballPosition = transform.position;

@@ -497,7 +497,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 262048880}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f2375b80a87cde543acf262bd9ac486d, type: 2}
+  m_Material: {fileID: 6200000, guid: 6109c72a98e66bb48a6d20b00f56e2fd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bouncePower: 1
 --- !u!1 &326129665
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bouncePower: 1
 --- !u!1 &367941051
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,7 +779,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 367941051}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f2375b80a87cde543acf262bd9ac486d, type: 2}
+  m_Material: {fileID: 6200000, guid: 6109c72a98e66bb48a6d20b00f56e2fd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -871,6 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bouncePower: 1
 --- !u!1 &417954319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bouncePower: 1
 --- !u!1 &1388216007
 GameObject:
   m_ObjectHideFlags: 0
