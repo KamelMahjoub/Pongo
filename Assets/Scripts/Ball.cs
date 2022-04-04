@@ -6,12 +6,14 @@ using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
-
-    private Rigidbody2D ballRb;
+    
+    [Header("Variables")]
+    
     [SerializeField]
     private float speed;
 
-    private Vector2 x;
+    private Rigidbody2D ballRb;
+ 
 
     private void Awake()
     {
@@ -23,17 +25,20 @@ public class Ball : MonoBehaviour
        LaunchBall(); 
     }
 
+    //Initializes the variables/properties
     private void Init()
     {
         ballRb = GetComponent<Rigidbody2D>();
         speed = 9f; 
     }
     
+    //Launches the ball in a random position
     private void LaunchBall()
     {
         ballRb.velocity = RandomStartingPosition() * speed;
     }
 
+    //Generates a random vector2 position that the ball will be launched to 
     private Vector2 RandomStartingPosition()
     {
         float startingAxisPosition = 1;
@@ -42,9 +47,15 @@ public class Ball : MonoBehaviour
             Random.Range(-startingAxisPosition, startingAxisPosition));
     }
 
+    //a public AddForce method to enforce encapsulation on the private rigidbody component
     public void AddForce(Vector2 force)
     {
         ballRb.AddForce(force);
+    }
+
+    public void SpawnBall()
+    {
+        Instantiate()
     }
     
     

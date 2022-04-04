@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float speed;
-    private float verticalInput;
+    [Header("Variables")]
     
     [SerializeField] 
     private bool isPlayerOne;
+    
+    private float speed;
+    private float verticalInput;
     
     private Rigidbody2D playerRb;
 

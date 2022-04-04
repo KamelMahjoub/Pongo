@@ -13,6 +13,7 @@ public class BouncySurface : MonoBehaviour
         bouncePower = 0.001f;
     }
 
+    //Adds a force whenever the ball collides with a wall or a player 
     private void OnCollisionEnter2D(Collision2D col)
     {
         ball = col.gameObject.GetComponent<Ball>();

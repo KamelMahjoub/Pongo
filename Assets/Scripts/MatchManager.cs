@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class MatchManager : MonoBehaviour
 {
+    [Header("Scoreboard Components")]
     [SerializeField]
     private TextMeshProUGUI playerOneScore;
     [SerializeField]
@@ -21,11 +22,7 @@ public class MatchManager : MonoBehaviour
         Init();
     }
 
-    private void Update()
-    {
-        
-    }
-
+    //Initializes the variables/properties
     private void Init()
     {
         playerOnePoints = 0;
@@ -34,7 +31,7 @@ public class MatchManager : MonoBehaviour
         DisplayScore();
     }
 
-
+    //Adds a point to the specified player
     public void AddPoint(int playerNb)
     {
         if(playerNb==1)
@@ -45,17 +42,19 @@ public class MatchManager : MonoBehaviour
         DisplayScore();
     }
 
-    
+    //Displays the score of player one
     private void DisplayPlayerOneScore()
     {
         playerOneScore.text = "" + playerOnePoints;
     }
     
+    //Displays the score of player two
     private void DisplayPlayerTwoScore()
     {
         playerTwoScore.text = "" + playerTwoPoints;
     }
 
+    //Displays both players scores
     private void DisplayScore()
     {
         DisplayPlayerOneScore();
