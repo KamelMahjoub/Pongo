@@ -100,15 +100,15 @@ public class MatchManager : MonoBehaviour
                 _matchUIManager.ChangeCountdownText("Pong!");
                 initialCountdown = 1;
                 isTimerRunning = false;
+                StartCoroutine(HideCountdownTextRoutine());
                 _matchUIManager.EnableMatchUI();
-                StartCoroutine(StartCountdownRoutine());
             }
         }
     }
     
-    IEnumerator StartCountdownRoutine()
+    IEnumerator HideCountdownTextRoutine()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.7f);
         _matchUIManager.HideCountdownText();
     }
 
