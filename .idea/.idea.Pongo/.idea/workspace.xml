@@ -23,7 +23,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="rider.run.widget.enabled.cache" value="false" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -60,6 +60,8 @@
       <workItem from="1648905570158" duration="14108000" />
       <workItem from="1649067684398" duration="19009000" />
       <workItem from="1649101131885" duration="3644000" />
+      <workItem from="1649342670613" duration="1870000" />
+      <workItem from="1649344796927" duration="4653000" />
     </task>
     <servers />
   </component>

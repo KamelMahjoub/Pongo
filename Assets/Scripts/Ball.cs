@@ -8,11 +8,11 @@ using Random = UnityEngine.Random;
 public class Ball : MonoBehaviour
 {
     [Header("Variables")]
-    
     [SerializeField]
     private float speed;
     
-    public Rigidbody2D ballRb;
+    [Header("Components")]
+    private Rigidbody2D ballRb;
     
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Ball : MonoBehaviour
     {
        LaunchBall(); 
     }
-
+    
     //Initializes the variables/properties
     private void Init()
     {
@@ -74,14 +74,5 @@ public class Ball : MonoBehaviour
     {
         ballRb.AddForce(force , ForceMode2D.Impulse);
     }
-
-   
     
-
-   
-    
-    
-    
-
-
 }

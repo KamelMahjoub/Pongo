@@ -29,7 +29,10 @@ public class MatchUIManager : MonoBehaviour
     
     [Header("Countdown Components")]
     [SerializeField]
-    private TextMeshProUGUI startingCountdownText;
+    private GameObject countdownPanel;
+    [SerializeField]
+    private TextMeshProUGUI countdownText;
+    
 
 
     private void Awake()
@@ -82,12 +85,12 @@ public class MatchUIManager : MonoBehaviour
 
     public void ChangeCountdownText(String textToDisplay)
     {
-        startingCountdownText.text = textToDisplay;
+        countdownText.text = textToDisplay;
     }
 
     public void HideCountdownText()
     {
-        startingCountdownText.enabled = false;
+        countdownPanel.SetActive(false);
     }
 
 

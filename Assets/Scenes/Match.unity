@@ -498,7 +498,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 262048880}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6109c72a98e66bb48a6d20b00f56e2fd, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncePower: 1
+  bouncePower: 0.4
 --- !u!1 &326129665
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncePower: 1
+  bouncePower: 0.4
 --- !u!1 &367941051
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 367941051}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6109c72a98e66bb48a6d20b00f56e2fd, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncePower: 1
+  bouncePower: 0.4
 --- !u!1 &417954319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1586,8 @@ MonoBehaviour:
   playerOne: {fileID: 326129665}
   playerTwo: {fileID: 1370180123}
   middleLine: {fileID: 728249963}
-  startingCountdownText: {fileID: 2001817498}
+  countdownPanel: {fileID: 1988922200}
+  countdownText: {fileID: 2001817498}
 --- !u!4 &1050026198
 Transform:
   m_ObjectHideFlags: 0
@@ -2066,7 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5f6139941eebe479bac078e13e447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouncePower: 1
+  bouncePower: 0.4
 --- !u!1 &1388216007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,7 +2190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c76451da7e5e4682afba2c9a127fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matchManager: {fileID: 0}
+  matchManager: {fileID: 1050026199}
 --- !u!1 &1494650577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,7 +2541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c76451da7e5e4682afba2c9a127fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matchManager: {fileID: 0}
+  matchManager: {fileID: 1050026199}
 --- !u!1 &1803454288
 GameObject:
   m_ObjectHideFlags: 0

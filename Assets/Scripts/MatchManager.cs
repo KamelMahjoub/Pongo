@@ -32,8 +32,12 @@ public class MatchManager : MonoBehaviour
         Init();
         _matchUIManager.DisableMatchUI();
     }
-    
-    
+
+    private void Start()
+    {
+        StartCoroutine(SpawnBallRoutine());
+    }
+
     private void Update()
     {
         StartingCountdown();
@@ -88,6 +92,7 @@ public class MatchManager : MonoBehaviour
     private void StartingCountdown()
     {
         bool isTimerRunning = true;
+
         if (isTimerRunning)
         {
             if (initialCountdown > 1)
@@ -98,8 +103,8 @@ public class MatchManager : MonoBehaviour
             else
             {
                 _matchUIManager.ChangeCountdownText("Pong!");
-                initialCountdown = 1;
                 isTimerRunning = false;
+                initialCountdown = 1;
                 StartCoroutine(HideCountdownTextRoutine());
                 _matchUIManager.EnableMatchUI();
             }
@@ -111,7 +116,12 @@ public class MatchManager : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         _matchUIManager.HideCountdownText();
     }
-
+    IEnumerator SpawnBallRoutine()
+    {
+        yield return new WaitForSeconds(4f);
+        SpawnBall();
+    }
+    
     private int GetSeconds(float time)
     {
         return Mathf.FloorToInt(time % 60);
