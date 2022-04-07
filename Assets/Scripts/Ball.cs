@@ -10,7 +10,11 @@ public class Ball : MonoBehaviour
     [Header("Variables")]
     [SerializeField]
     private float speed;
-    
+    [SerializeField]
+    private float raycastDistance;
+    private RaycastHit2D ray;
+    private int layerMask;
+
     [Header("Components")]
     private Rigidbody2D ballRb;
     
@@ -19,16 +23,24 @@ public class Ball : MonoBehaviour
        Init();
     }
 
+    private void FixedUpdate()
+    {
+       ray = DrawRaycast();
+       ScoreGoal();
+    }
+
     private void Start()
     {
-       LaunchBall(); 
+       //LaunchBall(); 
     }
     
     //Initializes the variables/properties
     private void Init()
     {
         ballRb = GetComponent<Rigidbody2D>();
-        speed = 5f; 
+        speed = 5f;
+        raycastDistance = 0.2f;
+        layerMask = 1 << 2;
     }
     
     //Launches the ball in a random position
@@ -74,5 +86,37 @@ public class Ball : MonoBehaviour
     {
         ballRb.AddForce(force , ForceMode2D.Impulse);
     }
-    
+
+    private RaycastHit2D DrawRaycast()
+    {
+        if (transform.position.x < 0)
+        {
+            Debug.DrawRay(transform.position, Vector2.right * raycastDistance, Color.red);
+            return DrawRaycast(Vector2.right);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, Vector2.left * raycastDistance, Color.blue);
+            return DrawRaycast(Vector2.left);
+        }
+    }
+
+    private RaycastHit2D DrawRaycast(Vector2 lookDirection)
+    {
+        return Physics2D.Raycast(transform.position, lookDirection , raycastDistance , ~layerMask);
+    }
+
+    private void ScoreGoal()
+    {
+        if (ray.collider != null)
+        {
+            if (ray.collider.CompareTag("Goal"))
+            {
+                Debug.Log("Goal!");
+            } 
+        }
+    }
+
+
+
 }

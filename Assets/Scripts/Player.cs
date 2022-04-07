@@ -14,8 +14,7 @@ public class Player : MonoBehaviour
     private float verticalInput;
 
     private string playerOneGameObjectName;
-    private string playerTwoGameObjectName;
-    
+
     private Rigidbody2D playerRb;
 
 
@@ -35,7 +34,6 @@ public class Player : MonoBehaviour
      playerRb = GetComponent<Rigidbody2D>();
      speed = 9f;
      playerOneGameObjectName = "Player1";
-     playerTwoGameObjectName = "Player2";
  }
  
  //Checks for the player's type and moves the game object accordingly

@@ -30,17 +30,17 @@ public class MatchManager : MonoBehaviour
     private void Awake()
     {
         Init();
-        _matchUIManager.DisableMatchUI();
+      //  _matchUIManager.DisableMatchUI();
     }
 
     private void Start()
     {
-        StartCoroutine(SpawnBallRoutine());
+       StartCoroutine(SpawnBallRoutine());
     }
 
     private void Update()
     {
-        StartingCountdown();
+       StartingCountdown();
     }
     
 

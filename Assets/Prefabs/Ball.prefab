@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 298092492397382165}
   - component: {fileID: 3960248616908346764}
   - component: {fileID: -2159285611445070175}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  ballRb: {fileID: 0}
+  raycastDistance: 0
 --- !u!114 &-2159285611445070175
 MonoBehaviour:
   m_ObjectHideFlags: 0
