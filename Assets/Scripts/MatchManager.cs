@@ -6,62 +6,63 @@ using Random = UnityEngine.Random;
 
 public class MatchManager : MonoBehaviour
 {
-    [Header("Match UI")]
-    [SerializeField] 
-    private MatchUIManager _matchUIManager;
-    
-    
-    [Header("Match Ball")]
-    [SerializeField] 
+    [Header("Match UI")] [SerializeField] private MatchUIManager _matchUIManager;
+
+
+    [Header("Match Ball")] [SerializeField]
     private GameObject ball;
-    [SerializeField] 
-    private Ball ballScript;
+
+    [SerializeField] private Ball ballScript;
 
     public int playerOnePoints { get; set; }
     public int playerTwoPoints { get; set; }
 
     private int playerOneID;
-    
+
+    private int scoreToWin;
+
     private float startingXPosition;
     private float startingYPosition;
     private float initialCountdown;
-    
+
 
     private void Awake()
     {
-        Init();
-      //  _matchUIManager.DisableMatchUI();
+        Init(); 
+        _matchUIManager.DisableMatchUI();
     }
 
     private void Start()
     {
-       StartCoroutine(SpawnBallRoutine());
+        StartCoroutine(SpawnBallRoutine());
     }
 
     private void Update()
     {
-       StartingCountdown();
+        StartingCountdown();
+        Win();
     }
-    
+
 
     //Initializes the variables/properties
     private void Init()
     {
-
         _matchUIManager = GetComponent<MatchUIManager>();
-        
+
         playerOnePoints = 0;
         playerTwoPoints = 0;
-        
+
         playerOneID = 1;
-        
+
+        scoreToWin = 5;
+
         initialCountdown = 4;
-        
+
         startingXPosition = 0;
         startingYPosition = 0;
     }
 
-    
+
     //Adds a point to the specified player
     public void AddPoint(int playerNb)
     {
@@ -71,11 +72,12 @@ public class MatchManager : MonoBehaviour
         }
         else
         {
-            playerTwoPoints++; 
+            playerTwoPoints++;
         }
+
         _matchUIManager.DisplayScore();
     }
-    
+
 
     //Sets the starting the position that the ball will spawn to
     private Vector2 StartingPosition()
@@ -110,26 +112,29 @@ public class MatchManager : MonoBehaviour
             }
         }
     }
-    
+
     IEnumerator HideCountdownTextRoutine()
     {
         yield return new WaitForSeconds(0.7f);
         _matchUIManager.HideCountdownText();
     }
+
     IEnumerator SpawnBallRoutine()
     {
         yield return new WaitForSeconds(4f);
         SpawnBall();
     }
-    
+
     private int GetSeconds(float time)
     {
         return Mathf.FloorToInt(time % 60);
     }
 
-
-    
-
-
-
+    private void Win()
+    {
+        if (playerOnePoints == scoreToWin || playerTwoPoints == scoreToWin)
+        {
+            Debug.Log("Win!");
+        }
+    }
 }

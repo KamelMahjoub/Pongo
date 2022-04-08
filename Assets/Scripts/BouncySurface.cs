@@ -10,6 +10,7 @@ public class BouncySurface : MonoBehaviour
     [SerializeField]
     private float bouncePower;
     private Ball ball;
+
     
 
     //Adds a force whenever the ball collides with a wall or a player 
