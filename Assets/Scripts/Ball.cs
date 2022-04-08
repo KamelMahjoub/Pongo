@@ -25,19 +25,16 @@ public class Ball : MonoBehaviour
     
     private void Start()
     {
-       LaunchBall(); 
-       InvokeRepeating("CheckBallPosition",4,5);
+       LaunchBall();
+       InvokeRepeating("GetLastPosition",5,1);
+       InvokeRepeating("CheckBallPosition",5,2f);
     }
 
     private void Update()
     {
-        lastYPostion = ballRb.position.y;
+        PushBall();
     }
 
-    private void LateUpdate()
-    {
-       // StartCoroutine(CheckPositionRoutine());
-    }
 
     //Initializes the variables/properties
     private void Init()
@@ -97,21 +94,38 @@ public class Ball : MonoBehaviour
         if (currentYPosition != lastYPostion)
         {
             internalCooldown = 0;
-            Debug.Log("cd : "+internalCooldown);
         }
         else
         {
             internalCooldown ++;
-            Debug.Log("cd : "+internalCooldown);
         }
     }
-
-    IEnumerator CheckPositionRoutine()
+    
+    private void GetLastPosition()
     {
-        yield return new WaitForSeconds(5);
-        CheckBallPosition();
+        lastYPostion = ballRb.position.y;
     }
+    
 
+    private void PushBall()
+    {
+        int cooldownLimit = 5;
+        int pushPower = 20;
+        float xAxis = 0;
+        float yAxis = ballRb.velocity.y;
+
+        if (internalCooldown == cooldownLimit)
+        {
+            if (ballRb.velocity.y >= 0)
+            {
+                ballRb.AddForce(new Vector2(xAxis, yAxis - pushPower));
+            }
+            else
+            {
+                ballRb.AddForce(new Vector2(xAxis, yAxis + pushPower) );
+            }
+        }
+    }
 
 
 }
