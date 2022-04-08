@@ -21,7 +21,6 @@ public class BouncySurface : MonoBehaviour
         {
             Vector2 normal = col.GetContact(0).normal;
             ball.AddForce(-normal * bouncePower);
-            
         }
     }
 }

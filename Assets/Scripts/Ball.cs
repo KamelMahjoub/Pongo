@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Animations;
 using Random = UnityEngine.Random;
@@ -10,37 +11,40 @@ public class Ball : MonoBehaviour
     [Header("Variables")]
     [SerializeField]
     private float speed;
-    [SerializeField]
-    private float raycastDistance;
-    private RaycastHit2D ray;
-    private int layerMask;
-
+    
     [Header("Components")]
     private Rigidbody2D ballRb;
-    
+
+    private int internalCooldown;
+    private float lastYPostion;
+
     private void Awake()
     {
        Init();
     }
-
-    private void FixedUpdate()
-    {
-       ray = DrawRaycast();
-       ScoreGoal();
-    }
-
+    
     private void Start()
     {
-       //LaunchBall(); 
+       LaunchBall(); 
+       InvokeRepeating("CheckBallPosition",4,5);
     }
-    
+
+    private void Update()
+    {
+        lastYPostion = ballRb.position.y;
+    }
+
+    private void LateUpdate()
+    {
+       // StartCoroutine(CheckPositionRoutine());
+    }
+
     //Initializes the variables/properties
     private void Init()
     {
         ballRb = GetComponent<Rigidbody2D>();
         speed = 5f;
-        raycastDistance = 0.2f;
-        layerMask = 1 << 2;
+        internalCooldown = 0;
     }
     
     //Launches the ball in a random position
@@ -87,34 +91,25 @@ public class Ball : MonoBehaviour
         ballRb.AddForce(force , ForceMode2D.Impulse);
     }
 
-    private RaycastHit2D DrawRaycast()
+    private void CheckBallPosition()
     {
-        if (transform.position.x < 0)
+        float currentYPosition = ballRb.position.y;
+        if (currentYPosition != lastYPostion)
         {
-            Debug.DrawRay(transform.position, Vector2.right * raycastDistance, Color.red);
-            return DrawRaycast(Vector2.right);
+            internalCooldown = 0;
+            Debug.Log("cd : "+internalCooldown);
         }
         else
         {
-            Debug.DrawRay(transform.position, Vector2.left * raycastDistance, Color.blue);
-            return DrawRaycast(Vector2.left);
+            internalCooldown ++;
+            Debug.Log("cd : "+internalCooldown);
         }
     }
 
-    private RaycastHit2D DrawRaycast(Vector2 lookDirection)
+    IEnumerator CheckPositionRoutine()
     {
-        return Physics2D.Raycast(transform.position, lookDirection , raycastDistance , ~layerMask);
-    }
-
-    private void ScoreGoal()
-    {
-        if (ray.collider != null)
-        {
-            if (ray.collider.CompareTag("Goal"))
-            {
-                Debug.Log("Goal!");
-            } 
-        }
+        yield return new WaitForSeconds(5);
+        CheckBallPosition();
     }
 
 

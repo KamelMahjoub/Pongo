@@ -39,6 +39,7 @@ public class Goal : MonoBehaviour
         {
             matchManager.AddPoint(playerOneID);
         }
+        Destroy(col.gameObject);
         matchManager.SpawnBall();
     }
 }

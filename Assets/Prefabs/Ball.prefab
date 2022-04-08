@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   raycastDistance: 0
+  matchManager: {fileID: 0}
 --- !u!114 &-2159285611445070175
 MonoBehaviour:
   m_ObjectHideFlags: 0
