@@ -7,6 +7,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMPro_Private.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -64,6 +67,7 @@
       <workItem from="1649344796927" duration="17415000" />
       <workItem from="1649379270823" duration="6756000" />
       <workItem from="1649424701215" duration="6372000" />
+      <workItem from="1649612813886" duration="422000" />
     </task>
     <servers />
   </component>
