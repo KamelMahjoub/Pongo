@@ -5,9 +5,6 @@ using TMPro;
 
 namespace SlimUI.ModernMenu{
 	public class OptionsMenuNew : MonoBehaviour {
-
-		public enum Platform {Desktop, Mobile};
-		public Platform platform;
 		
 
 		[Header("VIDEO SETTINGS")]

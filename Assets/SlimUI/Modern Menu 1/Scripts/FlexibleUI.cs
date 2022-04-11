@@ -16,9 +16,7 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public virtual void Update(){
-			//if(Application.isEditor){
-				OnSkinUI();
-			//}
+			OnSkinUI();
 		}
 	}
 }

@@ -30,9 +30,9 @@ namespace SlimUI.ModernMenu{
 		public Custom2 custom2;
 		public Custom3 custom3;
 
-		[HideInInspector]
+		//[HideInInspector]
 		public Color currentColor;
-		[HideInInspector]
+		//[HideInInspector]
 		public Color32 textColor;
 	}
 }
