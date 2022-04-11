@@ -52,7 +52,8 @@ namespace SlimUI.ModernMenu
         public Slider loadBar;
         public TMP_Text finishedLoadingText;
 
-        [Header("CANVAS")] public GameObject creditsCanvas;
+        [Header("CANVAS")] 
+        public GameObject creditsCanvas;
         public GameObject settingsCanvas;
         public GameObject matchCanvas;
 
@@ -62,7 +63,6 @@ namespace SlimUI.ModernMenu
 
             playMenu.SetActive(false);
             exitMenu.SetActive(false);
-            if (extrasMenu) extrasMenu.SetActive(false);
             firstMenu.SetActive(true);
             mainMenu.SetActive(true);
 
