@@ -17,7 +17,6 @@ namespace SlimUI.ModernMenu{
 
 		[Header("GAME SETTINGS")]
 		public GameObject showhudtext;
-		public GameObject tooltipstext;
 		public GameObject difficultynormaltext;
 		public GameObject difficultynormaltextLINE;
 		public GameObject difficultyhardcoretext;
@@ -73,14 +72,7 @@ namespace SlimUI.ModernMenu{
 				texturehightextLINE.gameObject.SetActive(true);
 			}
 		}
-
-		public void Update (){
-			//sliderValue = musicSlider.GetComponent<Slider>().value;
-			
-		}
-
 		
-
 		public void MusicSlider (){
 			//PlayerPrefs.SetFloat("MusicVolume", sliderValue);
 			PlayerPrefs.SetFloat("MusicVolume", musicSlider.GetComponent<Slider>().value);
@@ -99,21 +91,7 @@ namespace SlimUI.ModernMenu{
 				showhudtext.GetComponent<TMP_Text>().text = "off";
 			}
 		}
-
 		
-
-		
-		// show tool tips like: 'How to Play' control pop ups
-		public void ToolTips (){
-			if(PlayerPrefs.GetInt("ToolTips")==0){
-				PlayerPrefs.SetInt("ToolTips",1);
-				tooltipstext.GetComponent<TMP_Text>().text = "on";
-			}
-			else if(PlayerPrefs.GetInt("ToolTips")==1){
-				PlayerPrefs.SetInt("ToolTips",0);
-				tooltipstext.GetComponent<TMP_Text>().text = "off";
-			}
-		}
 
 		public void NormalDifficulty (){
 			difficultyhardcoretextLINE.gameObject.SetActive(false);
