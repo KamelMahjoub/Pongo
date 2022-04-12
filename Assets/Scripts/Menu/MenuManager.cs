@@ -13,25 +13,35 @@ namespace SlimUI.ModernMenu
     {
         Animator cameraObject;
         public enum Theme {custom1, custom2, custom3};
-        [Header("Theme Settings")]
+        [Header("THEME SETTINGS")]
         public Theme theme;
         int themeIndex;
         public FlexibleUIData themeController;
         
         [Header("SFX")] 
-        public AudioSource hoverSound;
-        public AudioSource sliderSound;
-        public AudioSource swooshSound;
+        [SerializeField]
+        private AudioSource hoverSound;
+        [SerializeField]
+        private AudioSource sliderSound;
+        [SerializeField]
+        private AudioSource swooshSound;
         
-        [Header("Menus")]
-        public GameObject mainMenu;
-        public GameObject menuButtons;
-        public GameObject exitMenu;
+        [Header("MENUS")]
+        [SerializeField]
+        private GameObject mainMenu;
+        [SerializeField]
+        private GameObject menuButtons;
+        [SerializeField]
+        private GameObject exitMenu;
 
         [Header("CANVAS")] 
-        public GameObject creditsCanvas;
-        public GameObject settingsCanvas;
-        public GameObject matchCanvas;
+        [SerializeField]
+        private GameObject creditsCanvas;
+        [SerializeField]
+        private GameObject settingsCanvas;
+        [SerializeField]
+        private GameObject matchCanvas;
+       
         /*
         [Header("LOADING SCREEN")]
         public GameObject loadingMenu;
@@ -44,14 +54,14 @@ namespace SlimUI.ModernMenu
             Init();
         }
 
-        public void Init()
+        private void Init()
         {
             cameraObject = transform.GetComponent<Animator>();
             InitMenu();
             SetThemeColors();
         }
         
-        public void InitMenu()
+        private void InitMenu()
         {
             exitMenu.SetActive(false);
             menuButtons.SetActive(true);
@@ -100,12 +110,8 @@ namespace SlimUI.ModernMenu
         
         public void ReturnMenu()
         {
-            //mainMenu.SetActive(true);
             CloseCanvas();
         }
-        
-        
-        
         
         public void Position2()
         {
@@ -116,7 +122,6 @@ namespace SlimUI.ModernMenu
         {
             cameraObject.SetFloat("Animate", 0);
         }
-        
         
         
         public void QuitGame()
@@ -132,8 +137,7 @@ namespace SlimUI.ModernMenu
         {
             exitMenu.SetActive(true);
         }
-        
-        
+
         public void PlayHover()
         {
             hoverSound.Play();
