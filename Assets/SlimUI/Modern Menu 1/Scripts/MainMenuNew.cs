@@ -68,11 +68,7 @@ namespace SlimUI.ModernMenu
 
             SetThemeColors();
         }
-
-        private void Update()
-        {
-            SetThemeColors();
-        }
+        
 
         void SetThemeColors(){
             if(theme == Theme.custom1){
