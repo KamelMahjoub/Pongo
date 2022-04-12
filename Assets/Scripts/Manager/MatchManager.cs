@@ -6,9 +6,9 @@ using Random = UnityEngine.Random;
 
 public class MatchManager : MonoBehaviour
 {
-    [Header("Match UI")] [SerializeField] private MatchUIManager _matchUIManager;
-
-
+    [Header("Match UI")] [SerializeField] 
+    private MatchUIManager _matchUIManager;
+    
     [Header("Match Ball")] [SerializeField]
     private GameObject ball;
 
@@ -34,6 +34,12 @@ public class MatchManager : MonoBehaviour
 
     private void Start()
     {
+        if (DataManager.Instance != null)
+        {
+            
+        }
+        
+        
         StartCoroutine(SpawnBallRoutine());
     }
 
