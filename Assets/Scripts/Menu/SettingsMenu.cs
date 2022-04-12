@@ -15,21 +15,21 @@ public class SettingsMenu : MonoBehaviour
     public GameObject linePowerups;
     
     
-    public void DisablePanels()
+    private void DisablePanels()
     {
         panelSettings.SetActive(false);
         panelControls.SetActive(false);
         panelPowerups.SetActive(false);
     }
 
-    public void DisableLines()
+    private void DisableLines()
     {
         lineSettings.SetActive(false);
         lineControls.SetActive(false);
         linePowerups.SetActive(false);
     }
 
-    public void DisableMenu()
+   private void DisableMenu()
     {
         DisablePanels();
         DisableLines();

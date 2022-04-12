@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,17 +27,17 @@ namespace SlimUI.ModernMenu
         public GameObject mainMenu;
         public GameObject menuButtons;
         public GameObject exitMenu;
-        
+
         [Header("CANVAS")] 
         public GameObject creditsCanvas;
         public GameObject settingsCanvas;
         public GameObject matchCanvas;
-        
+        /*
         [Header("LOADING SCREEN")]
         public GameObject loadingMenu;
         public Slider loadBar;
         public TMP_Text finishedLoadingText;
-
+*/
 
         private void Awake()
         {
@@ -96,11 +97,15 @@ namespace SlimUI.ModernMenu
             exitMenu.SetActive(false);
         }
         
+        
         public void ReturnMenu()
         {
+            //mainMenu.SetActive(true);
             CloseCanvas();
-            mainMenu.SetActive(true);
         }
+        
+        
+        
         
         public void Position2()
         {
@@ -111,6 +116,8 @@ namespace SlimUI.ModernMenu
         {
             cameraObject.SetFloat("Animate", 0);
         }
+        
+        
         
         public void QuitGame()
         {
@@ -124,6 +131,22 @@ namespace SlimUI.ModernMenu
         public void QuitConfirmation()
         {
             exitMenu.SetActive(true);
+        }
+        
+        
+        public void PlayHover()
+        {
+            hoverSound.Play();
+        }
+
+        public void PlaySFXHover()
+        {
+            sliderSound.Play();
+        }
+
+        public void PlaySwoosh()
+        {
+            swooshSound.Play();
         }
         
         
