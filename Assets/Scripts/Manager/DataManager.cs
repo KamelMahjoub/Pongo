@@ -6,12 +6,11 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
-
-    private bool isBot { get; set;}
-    private bool canPowerup { get; set;}
-    public int goals {get; set;}
-    private int timeLimit { get; set;}
-    private string matchMode { get; set;}
+    public bool isBot { get; set;}
+    public bool canPowerup { get; set;}
+    public int goals { get; set;}
+    public int timeLimit { get; set;}
+    public string matchMode { get; set;}
     
     private void Awake()
     {
@@ -23,6 +22,8 @@ public class DataManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    
+    
 
 
     

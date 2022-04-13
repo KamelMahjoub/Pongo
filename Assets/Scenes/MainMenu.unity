@@ -386,8 +386,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: TexturesLow
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SelectFirstGoalLimit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -593,8 +593,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: TexturesHigh
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SelectThirdTimeLimit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1032,7 +1032,7 @@ RectTransform:
   m_Children:
   - {fileID: 210299698}
   m_Father: {fileID: 1155850927}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1084,8 +1084,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: NormalDifficulty
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SetMatchAgainstPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2153,8 +2153,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: TexturesLow
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SelectFirstTimeLimit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2683,7 +2683,7 @@ RectTransform:
   m_Children:
   - {fileID: 526808794}
   m_Father: {fileID: 1155850927}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2735,8 +2735,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: HardcoreDifficulty
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SetMatchAgainstBot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3678,18 +3678,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 591426920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f6aa6586f77764fab668a0a62d8f7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b0cbb94edd29084882eff2b2e07cfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texturelowtextLINE: {fileID: 342149919}
-  texturemedtextLINE: {fileID: 1310627123}
-  texturehightextLINE: {fileID: 1155184150}
-  showhudtext: {fileID: 1671811805}
-  difficultynormaltext: {fileID: 210299694}
-  difficultynormaltextLINE: {fileID: 1338055668}
-  difficultyhardcoretext: {fileID: 526808790}
-  difficultyhardcoretextLINE: {fileID: 700098187}
-  musicSlider: {fileID: 0}
+  vsPlayerHighlight: {fileID: 1338055668}
+  vsBotHighlight: {fileID: 700098187}
+  goalHighlight: {fileID: 2040532657}
+  timeHighlight: {fileID: 1842616118}
+  goalPanel: {fileID: 567249561}
+  timePanel: {fileID: 924847651}
+  firstGoalLine: {fileID: 342149919}
+  secondGoalLine: {fileID: 1310627123}
+  thirdGoalLine: {fileID: 1155184150}
+  firstTimeLine: {fileID: 2115650509}
+  secondTimeLine: {fileID: 834507132}
+  thirdTimeLine: {fileID: 872591364}
+  powerupText: {fileID: 1671811806}
 --- !u!114 &591426923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3883,6 +3887,18 @@ MonoBehaviour:
       - m_Target: {fileID: 352696003658788782}
         m_TargetAssemblyTypeName: SlimUI.ModernMenu.MenuManager, Assembly-CSharp
         m_MethodName: Position1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 352696003658788782}
+        m_TargetAssemblyTypeName: SlimUI.ModernMenu.MenuManager, Assembly-CSharp
+        m_MethodName: ReturnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4209,8 +4225,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: TexturesMed
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SelectSecondGoalLimit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4275,7 +4291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &700098188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4749,7 +4765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &834507133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4840,7 +4856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &872591365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4983,8 +4999,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1609704849}
-  - {fileID: 2110645836}
   - {fileID: 1121198832}
+  - {fileID: 2110645836}
   - {fileID: 17972873}
   m_Father: {fileID: 1869780631}
   m_RootOrder: 1
@@ -6400,7 +6416,7 @@ RectTransform:
   m_Children:
   - {fileID: 153614964}
   m_Father: {fileID: 954597902}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6452,8 +6468,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: NormalDifficulty
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SetGoalsMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6585,8 +6601,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: TexturesHigh
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SelectThirdGoalLimit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6932,8 +6948,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1097594533}
-  - {fileID: 395881908}
   - {fileID: 158401883}
+  - {fileID: 395881908}
   - {fileID: 210178281}
   m_Father: {fileID: 1869780631}
   m_RootOrder: 0
@@ -7985,7 +8001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1338055669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9324,8 +9340,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: TexturesMed
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SelectSecondTimeLimit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9565,7 +9581,7 @@ GameObject:
   - component: {fileID: 1779417844}
   - component: {fileID: 1779417843}
   m_Layer: 5
-  m_Name: Powerups_Button
+  m_Name: PowerupsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9579,7 +9595,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779417841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000011921}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1671811809}
@@ -9588,8 +9604,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 379.0001, y: 52.000004}
-  m_SizeDelta: {x: 401, y: 67}
+  m_AnchoredPosition: {x: 265, y: 52}
+  m_SizeDelta: {x: 100, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779417843
 MonoBehaviour:
@@ -9636,8 +9652,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ShowHUD
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SetPowerups
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9883,7 +9899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1842616119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10428,7 +10444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2040532658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10876,7 +10892,7 @@ RectTransform:
   m_Children:
   - {fileID: 1493864328}
   m_Father: {fileID: 954597902}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10928,8 +10944,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 591426922}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: HardcoreDifficulty
+        m_TargetAssemblyTypeName: MatchMenu, Assembly-CSharp
+        m_MethodName: SetTimeMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

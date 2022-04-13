@@ -110,7 +110,7 @@ namespace SlimUI.ModernMenu
         
         public void ReturnMenu()
         {
-            CloseCanvas();
+            StartCoroutine(CloseCanvasRoutine());
         }
         
         public void Position2()
@@ -152,6 +152,14 @@ namespace SlimUI.ModernMenu
         {
             swooshSound.Play();
         }
+
+        IEnumerator CloseCanvasRoutine()
+        {
+            yield return new WaitForSeconds(0.5f);
+            CloseCanvas();
+        }
+
+      
         
         
         
