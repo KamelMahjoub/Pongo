@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbd413de-5fa7-4d8e-bfaa-101b173245cd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Pongo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pongo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/DataManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/MatchMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/MatchMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/MenuManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +81,7 @@
       <workItem from="1649771673063" duration="8915000" />
       <workItem from="1649792525827" duration="6657000" />
       <workItem from="1649859294902" duration="12176000" />
-      <workItem from="1649874553890" duration="3898000" />
+      <workItem from="1649874553890" duration="3667000" />
     </task>
     <servers />
   </component>
