@@ -12,7 +12,10 @@ namespace SlimUI.ModernMenu
     public class MenuManager : MonoBehaviour
     {
         Animator cameraObject;
-     
+        public enum Theme {custom1, custom2, custom3};
+        [Header("THEME SETTINGS")]
+        public Theme theme;
+        int themeIndex;
         public FlexibleUIData themeController;
         
         [Header("SFX")] 
@@ -38,7 +41,14 @@ namespace SlimUI.ModernMenu
         private GameObject settingsCanvas;
         [SerializeField]
         private GameObject matchCanvas;
-        
+       
+        /*
+        [Header("LOADING SCREEN")]
+        public GameObject loadingMenu;
+        public Slider loadBar;
+        public TMP_Text finishedLoadingText;
+*/
+
         private void Awake()
         {
             Init();
@@ -62,8 +72,19 @@ namespace SlimUI.ModernMenu
         
         //Sets the colours of the menu
         private void SetThemeColors(){
-            themeController.currentColor = themeController.custom1.graphic1;
-            themeController.textColor = themeController.custom1.text1;
+            if(theme == Theme.custom1){
+                themeController.currentColor = themeController.custom1.graphic1;
+                themeController.textColor = themeController.custom1.text1;
+                themeIndex = 0;
+            }else if(theme == Theme.custom2){
+                themeController.currentColor = themeController.custom2.graphic2;
+                themeController.textColor = themeController.custom2.text2;
+                themeIndex = 1;
+            }else if(theme == Theme.custom3){
+                themeController.currentColor = themeController.custom3.graphic3;
+                themeController.textColor = themeController.custom3.text3;
+                themeIndex = 2;
+            }
         }
         
         //Opens the match menu
