@@ -6,6 +6,7 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
+    
     public bool isBot { get; set;}
     public bool canPowerup { get; set;}
     public int goals { get; set;}

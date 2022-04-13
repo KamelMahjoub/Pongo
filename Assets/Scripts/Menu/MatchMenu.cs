@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MatchMenu : MonoBehaviour
@@ -70,16 +71,23 @@ public class MatchMenu : MonoBehaviour
     [SerializeField]
     private TextMeshPro powerupText;
     
+    [Header("LOADING SCREEN")]
+    public GameObject loadingMenu;
+    public Slider loadBar;
+    
     [Header("VARIABLES")]
     private bool isBot;
     private bool canPowerup;
     private int goals;
     private int time;
     private string mode;
-    
+    private string matchSceneName;
+
+
     private void OnEnable()
     {
         Init();
+        matchSceneName = "Match";
     }
 
     //Initializes the variables
@@ -195,30 +203,33 @@ public class MatchMenu : MonoBehaviour
             canPowerup = true;
         }
     }
-    
-    public void Play()
+
+    //Saves the match menu data in the data manager
+    private void SaveMatchData()
     {
-        if (isBot)
+        DataManager.Instance.isBot = isBot;
+        DataManager.Instance.matchMode = mode;
+        
+        if (mode.Equals("GoalLimited"))
         {
-            Debug.Log("Match Mode : VS BOT");
+            DataManager.Instance.goals = goals;
         }
         else
         {
-            Debug.Log("Match Mode : VS Player");
+            DataManager.Instance.timeLimit = time;
         }
 
-        if (mode.Equals("GoalLimited"))
-        {
-            Debug.Log("First To : "+goals);
-        }
-        
-        if (mode.Equals("TimeLimited"))
-        {
-            Debug.Log("Time Limit : "+time);
-        }
-
-        Debug.Log("Powerups : "+canPowerup);
+        DataManager.Instance.canPowerup = canPowerup;
     }
+    
+    //loads the match scene with the match menu data
+    public void Play()
+    {
+        SaveMatchData();
+        SceneManager.LoadScene(matchSceneName);
+    }
+    
+    
     
     
     

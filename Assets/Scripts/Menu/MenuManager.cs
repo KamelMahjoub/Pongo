@@ -172,6 +172,8 @@ namespace SlimUI.ModernMenu
         {
             swooshSound.Play();
         }
+        
+        
 
       
 
