@@ -76,15 +76,13 @@ public class MatchMenu : MonoBehaviour
     private int goals;
     private int time;
     private string mode;
-   
-
+    
     private void OnEnable()
     {
         Init();
     }
 
-  
-
+    //Initializes the variables
     private void Init()
     {
         SetPowerups();
@@ -92,22 +90,23 @@ public class MatchMenu : MonoBehaviour
         SetGoalsMode();
     }
     
-    
-//Sets the match mode against the player
+    //Sets the match mode against the player
     public void SetMatchAgainstPlayer()
     {
         vsPlayerHighlight.SetActive(true);
         vsBotHighlight.SetActive(false);
         isBot = false;
     }
-//Sets the match mode against the bot
+    
+    //Sets the match mode against the bot
     public void SetMatchAgainstBot()
     {
         vsBotHighlight.SetActive(true);
         vsPlayerHighlight.SetActive(false);
         isBot = true;
     }
-//Sets the match type to be goals limited
+    
+    //Sets the match type to be goals limited
     public void SetGoalsMode()
     {
         goalHighlight.SetActive(true);
@@ -116,9 +115,9 @@ public class MatchMenu : MonoBehaviour
         timePanel.SetActive(false);
         SelectFirstGoalLimit();
         mode = MatchMode.GoalLimited.ToString();
-
     }
-//Sets the match type to be time limited
+    
+    //Sets the match type to be time limited
     public void SetTimeMode()
     {
         timeHighlight.SetActive(true);
@@ -127,7 +126,8 @@ public class MatchMenu : MonoBehaviour
         timePanel.SetActive(true);
         mode = MatchMode.TimeLimited.ToString();
     }
-//Sets the goal limit to the first value
+    
+    //Sets the goal limit to the first value
     public void SelectFirstGoalLimit()
     {
         firstGoalLine.SetActive(true);
@@ -135,7 +135,8 @@ public class MatchMenu : MonoBehaviour
         thirdGoalLine.SetActive(false);
         goals = (int)GoalsToWin.Five;
     } 
-//Sets the goal limit to the second value
+    
+    //Sets the goal limit to the second value
     public void SelectSecondGoalLimit()
     {
         firstGoalLine.SetActive(false);
@@ -143,7 +144,8 @@ public class MatchMenu : MonoBehaviour
         thirdGoalLine.SetActive(false);
         goals = (int)GoalsToWin.Ten;
     }
-//Sets the goal limit to the third value
+    
+    //Sets the goal limit to the third value
     public void SelectThirdGoalLimit()
     {
         firstGoalLine.SetActive(false);
@@ -152,7 +154,7 @@ public class MatchMenu : MonoBehaviour
         goals = (int)GoalsToWin.Twenty;
     }
     
-//Sets the time limit to the first value
+    //Sets the time limit to the first value
     public void SelectFirstTimeLimit()
     {
         firstTimeLine.SetActive(true);
@@ -160,7 +162,8 @@ public class MatchMenu : MonoBehaviour
         thirdTimeLine.SetActive(false);
         time = (int)MatchTime.Three;
     } 
-//Sets the time limit to the second value
+    
+    //Sets the time limit to the second value
     public void SelectSecondTimeLimit()
     {
         firstTimeLine.SetActive(false);
@@ -168,7 +171,8 @@ public class MatchMenu : MonoBehaviour
         thirdTimeLine.SetActive(false);
         time = (int)MatchTime.Five;
     } 
-//Sets the time limit to the third value
+    
+    //Sets the time limit to the third value
     public void SelectThirdTimeLimit()
     {
         firstTimeLine.SetActive(false);
@@ -176,7 +180,8 @@ public class MatchMenu : MonoBehaviour
         thirdTimeLine.SetActive(true);
         time = (int)MatchTime.Seven;
     }
-//Sets the powerup to active or inactive 
+    
+    //Sets the powerup to active or inactive 
     public void SetPowerups()
     {
         if (canPowerup)
@@ -190,9 +195,7 @@ public class MatchMenu : MonoBehaviour
             canPowerup = true;
         }
     }
-
-
-
+    
     public void Play()
     {
         if (isBot)

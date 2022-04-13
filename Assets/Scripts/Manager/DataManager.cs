@@ -12,6 +12,7 @@ public class DataManager : MonoBehaviour
     public int timeLimit { get; set;}
     public string matchMode { get; set;}
     
+    //Singleton 
     private void Awake()
     {
         if (Instance != null)

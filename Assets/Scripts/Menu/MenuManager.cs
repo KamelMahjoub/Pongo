@@ -53,7 +53,8 @@ namespace SlimUI.ModernMenu
         {
             Init();
         }
-
+        
+        //Initializes the variables        
         private void Init()
         {
             cameraObject = transform.GetComponent<Animator>();
@@ -61,6 +62,7 @@ namespace SlimUI.ModernMenu
             SetThemeColors();
         }
         
+        //Initializes the menu buttons
         private void InitMenu()
         {
             exitMenu.SetActive(false);
@@ -68,6 +70,7 @@ namespace SlimUI.ModernMenu
             mainMenu.SetActive(true);  
         }
         
+        //Sets the colours of the menu
         private void SetThemeColors(){
             if(theme == Theme.custom1){
                 themeController.currentColor = themeController.custom1.graphic1;
@@ -84,21 +87,25 @@ namespace SlimUI.ModernMenu
             }
         }
         
+        //Opens the match menu
         public void OpenMatchCanvas()
         {
             matchCanvas.SetActive(true);
         }
         
+        //Opens the settings menu
         public void OpenSettingsCanvas()
         {
             settingsCanvas.SetActive(true);
         }
         
+        //Opens the credits menu
         public void OpenCreditsCanvas()
         {
             creditsCanvas.SetActive(true);
         }
         
+        //Closes all the menus
         public void CloseCanvas()
         {
             creditsCanvas.SetActive(false);
@@ -107,23 +114,32 @@ namespace SlimUI.ModernMenu
             exitMenu.SetActive(false);
         }
         
+        //A routine to close the menus after 0.5 seconds
+        IEnumerator CloseCanvasRoutine()
+        {
+            yield return new WaitForSeconds(0.5f);
+            CloseCanvas();
+        }
         
+        //Calls the routine to call the menus
         public void ReturnMenu()
         {
             StartCoroutine(CloseCanvasRoutine());
         }
         
+        //Changes the display to position2 to display the menus
         public void Position2()
         {
             cameraObject.SetFloat("Animate", 1);
         }
 
+        //Changes the display to position1 to display the main menu
         public void Position1()
         {
             cameraObject.SetFloat("Animate", 0);
         }
         
-        
+        //Quits the game
         public void QuitGame()
         {
         #if UNITY_EDITOR
@@ -133,31 +149,31 @@ namespace SlimUI.ModernMenu
         #endif
         }
         
+        //Displays the confirmation menu to confirm or decline quitting the game
         public void QuitConfirmation()
         {
             exitMenu.SetActive(true);
         }
 
+        //Plays a sound whenever the mouse hovers over a button
         public void PlayHover()
         {
             hoverSound.Play();
         }
 
+        //Plays a sound whenever the slider value changes
         public void PlaySFXHover()
         {
             sliderSound.Play();
         }
 
+        //Plays a sound whenever a menu is open
         public void PlaySwoosh()
         {
             swooshSound.Play();
         }
 
-        IEnumerator CloseCanvasRoutine()
-        {
-            yield return new WaitForSeconds(0.5f);
-            CloseCanvas();
-        }
+      
 
       
         
