@@ -67,15 +67,11 @@ public class MatchMenu : MonoBehaviour
     [SerializeField]
     private GameObject thirdTimeLine;
 
-    [Header("POWERUP TIME")] 
+    [Header("POWERUP TEXT")] 
     [SerializeField]
     private TextMeshPro powerupText;
     
-    [Header("LOADING SCREEN")]
-    public GameObject loadingMenu;
-    public Slider loadBar;
-    
-    [Header("VARIABLES")]
+   //Variables
     private bool isBot;
     private bool canPowerup;
     private int goals;
