@@ -31,15 +31,17 @@ public class Goal : MonoBehaviour
     //Whenever the ball collides with a goal, adds a point to the scorer and spawns another ball
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (gameObject.name == playerOneGoal)
+        matchManager.AddPoint(gameObject.name == playerOneGoal ? playerTwoID : playerOneID);
+        
+        Destroy(col.gameObject);
+        
+        if (matchManager.IsGoalLimited()&& matchManager.HasReachedGoalLimit())
         {
-            matchManager.AddPoint(playerTwoID);
+            matchManager.CheckResult();
         }
         else
         {
-            matchManager.AddPoint(playerOneID);
+            matchManager.SpawnBall();
         }
-        Destroy(col.gameObject);
-        matchManager.SpawnBall();
     }
 }

@@ -12,15 +12,15 @@ public class MatchManager : MonoBehaviour
     [Header("Match Ball")] [SerializeField]
     private GameObject ball;
 
-    [SerializeField] private Ball ballScript;
+    [SerializeField] 
+    private Ball ballScript;
 
     public int playerOnePoints { get; set; }
     public int playerTwoPoints { get; set; }
 
     private int playerOneID;
-
-    private int scoreToWin;
-
+    private int playerTwoID;
+    
     private float startingXPosition;
     private float startingYPosition;
     private float initialCountdown;
@@ -36,17 +36,14 @@ public class MatchManager : MonoBehaviour
     {
         if (DataManager.Instance != null)
         {
-            
+            Invoke(nameof(SpawnBall),4f);
+            Invoke(nameof(DisplayMatchUi), 3f);
         }
-        
-        
-        StartCoroutine(SpawnBallRoutine());
     }
 
     private void Update()
     {
         StartingCountdown();
-        Win();
     }
 
 
@@ -59,16 +56,14 @@ public class MatchManager : MonoBehaviour
         playerTwoPoints = 0;
 
         playerOneID = 1;
-
-        scoreToWin = 5;
-
+        playerTwoID = 2;
+        
         initialCountdown = 4;
 
         startingXPosition = 0;
         startingYPosition = 0;
     }
-
-
+    
     //Adds a point to the specified player
     public void AddPoint(int playerNb)
     {
@@ -80,7 +75,6 @@ public class MatchManager : MonoBehaviour
         {
             playerTwoPoints++;
         }
-
         _matchUIManager.DisplayScore();
     }
 
@@ -113,34 +107,103 @@ public class MatchManager : MonoBehaviour
                 _matchUIManager.ChangeCountdownText("Pong!");
                 isTimerRunning = false;
                 initialCountdown = 1;
-                StartCoroutine(HideCountdownTextRoutine());
-                _matchUIManager.EnableMatchUI();
+                Invoke(nameof(HideCountdownText),0.7f);
             }
         }
     }
-
-    IEnumerator HideCountdownTextRoutine()
+    
+    private void HideCountdownText()
     {
-        yield return new WaitForSeconds(0.7f);
         _matchUIManager.HideCountdownText();
     }
 
-    IEnumerator SpawnBallRoutine()
+    private void DisplayMatchUi()
     {
-        yield return new WaitForSeconds(4f);
-        SpawnBall();
+        _matchUIManager.EnableMatchUI();
     }
-
+   
     private int GetSeconds(float time)
     {
         return Mathf.FloorToInt(time % 60);
     }
 
-    private void Win()
+    public void CheckResult()
     {
-        if (playerOnePoints == scoreToWin || playerTwoPoints == scoreToWin)
+        if (IsGoalLimited())
         {
-            Debug.Log("Win!");
+          CheckGoalModeResult();
+        }
+        else
+        {
+           CheckTimeModeResult(); 
         }
     }
+
+    private void CheckGoalModeResult()
+    {
+        if (playerOnePoints == GetGoalsLimit())
+        {
+            DisplayResult(playerOneID);
+        }
+        else
+        if (playerTwoPoints == GetGoalsLimit())
+        {
+            DisplayResult(playerTwoID);
+        }
+    }
+
+    private void CheckTimeModeResult()
+    {
+        int drawID = 0;
+
+        if (playerOnePoints == playerTwoPoints)
+        {
+            DisplayResult(drawID);
+        }
+        else if (playerOnePoints > playerTwoPoints)
+        {
+            DisplayResult(playerOneID);
+        }
+        else
+        {
+            DisplayResult(playerTwoID);
+        }
+    }
+    
+    
+    private void DisplayResult(int winnerID)
+    {
+        _matchUIManager.DisableMatchUI();
+        _matchUIManager.DisplayPostMatchCanvas();
+        if (winnerID == 0)
+        {
+            _matchUIManager.SetGameResult("Draw!");
+        }
+        else
+        {
+            _matchUIManager.SetGameResult("Player "+winnerID+" Wins!");
+        }
+    }
+
+    private int GetGoalsLimit()
+    {
+        return DataManager.Instance.goals;
+    }
+    
+    public bool IsGoalLimited()
+    { 
+        string goalMode = "GoalLimited";
+        return DataManager.Instance.matchMode.Equals(goalMode);
+    }
+    
+    public bool HasReachedGoalLimit()
+    {
+        return playerOnePoints == GetGoalsLimit() || playerTwoPoints == GetGoalsLimit();
+    }
+
+  
+        
+
+
+
 }

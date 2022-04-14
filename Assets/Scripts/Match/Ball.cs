@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
     private Rigidbody2D ballRb;
 
     private int internalCooldown;
-    private float lastYPostion;
+    private float lastYPosition;
 
     private void Awake()
     {
@@ -91,7 +91,7 @@ public class Ball : MonoBehaviour
     private void CheckBallPosition()
     {
         float currentYPosition = ballRb.position.y;
-        if (currentYPosition != lastYPostion)
+        if (currentYPosition != lastYPosition)
         {
             internalCooldown = 0;
         }
@@ -103,7 +103,7 @@ public class Ball : MonoBehaviour
     
     private void GetLastPosition()
     {
-        lastYPostion = ballRb.position.y;
+        lastYPosition = ballRb.position.y;
     }
     
 

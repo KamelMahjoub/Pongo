@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 42.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1768,6 +1768,8 @@ MonoBehaviour:
   middleLine: {fileID: 728249963}
   countdownPanel: {fileID: 1988922200}
   countdownText: {fileID: 2001817498}
+  postMatchPanel: {fileID: 528820171}
+  gameResultText: {fileID: 709861147}
 --- !u!4 &1050026198
 Transform:
   m_ObjectHideFlags: 0
@@ -3015,7 +3017,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 66.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

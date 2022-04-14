@@ -9,7 +9,7 @@ public class MatchUIManager : MonoBehaviour
     [SerializeField]
     private MatchManager _managerScript;
     
-    [Header("Scoreboard Components")]
+    [Header("SCOREBOARD COMPONENTS")]
     [SerializeField] 
     private GameObject scoreBoard;
     [SerializeField]
@@ -17,21 +17,27 @@ public class MatchUIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI playerTwoScore;
   
-    [Header("Player Components")]
+    [Header("PLAYER COMPONENTS")]
     [SerializeField]
     private GameObject playerOne;
     [SerializeField]
     private GameObject playerTwo;
   
-    [Header("Field Components")]
+    [Header("FIELD COMPONENT")]
     [SerializeField] 
     private GameObject middleLine;
     
-    [Header("Countdown Components")]
+    [Header("COUNTDOWN COMPONENTS")]
     [SerializeField]
     private GameObject countdownPanel;
     [SerializeField]
     private TextMeshProUGUI countdownText;
+    
+    [Header("POST MATCH COMPONENTS")]
+    [SerializeField]
+    private GameObject postMatchPanel;
+    [SerializeField]
+    private TextMeshProUGUI gameResultText;
     
 
 
@@ -91,6 +97,16 @@ public class MatchUIManager : MonoBehaviour
     public void HideCountdownText()
     {
         countdownPanel.SetActive(false);
+    }
+
+    public void DisplayPostMatchCanvas()
+    {
+        postMatchPanel.SetActive(true);
+    }
+
+    public void SetGameResult(string text)
+    {
+        gameResultText.SetText(text);
     }
 
 
