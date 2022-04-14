@@ -6,10 +6,10 @@ using Random = UnityEngine.Random;
 
 public class MatchManager : MonoBehaviour
 {
-    [Header("Match UI")] [SerializeField] 
+    [Header("MATCH UI")] [SerializeField] 
     private MatchUIManager _matchUIManager;
     
-    [Header("Match Ball")] [SerializeField]
+    [Header("MATCH BALL")] [SerializeField]
     private GameObject ball;
 
     [SerializeField] 
@@ -24,20 +24,17 @@ public class MatchManager : MonoBehaviour
     private float startingXPosition;
     private float startingYPosition;
     private float initialCountdown;
-
-
-    private void Awake()
-    {
-        Init(); 
-        _matchUIManager.DisableMatchUI();
-    }
+    private float initialCountdownLimit;
+    
+    private bool isCountdownRunning;
+    
 
     private void Start()
     {
         if (DataManager.Instance != null)
         {
-            Invoke(nameof(SpawnBall),4f);
-            Invoke(nameof(DisplayMatchUi), 3f);
+            Init(); 
+            _matchUIManager.DisableMatchUI();
         }
     }
 
@@ -59,9 +56,12 @@ public class MatchManager : MonoBehaviour
         playerTwoID = 2;
         
         initialCountdown = 4;
+        initialCountdownLimit = 1;
 
         startingXPosition = 0;
         startingYPosition = 0;
+
+        isCountdownRunning = true;
     }
     
     //Adds a point to the specified player
@@ -91,23 +91,24 @@ public class MatchManager : MonoBehaviour
         Instantiate(ball, StartingPosition(), ball.transform.rotation);
     }
 
+    
     private void StartingCountdown()
     {
-        bool isTimerRunning = true;
-
-        if (isTimerRunning)
+        if (isCountdownRunning)
         {
-            if (initialCountdown > 1)
+            if (initialCountdown < initialCountdownLimit)
             {
-                _matchUIManager.ChangeCountdownText(GetSeconds(initialCountdown).ToString());
-                initialCountdown -= Time.deltaTime;
+                DisplayMatchUi();
+                _matchUIManager.ChangeCountdownText("Pong!");
+                Invoke(nameof(HideCountdownText),0.7f);
+                initialCountdown = initialCountdownLimit;
+                Invoke(nameof(SpawnBall),1f);
+                isCountdownRunning = false;
             }
             else
             {
-                _matchUIManager.ChangeCountdownText("Pong!");
-                isTimerRunning = false;
-                initialCountdown = 1;
-                Invoke(nameof(HideCountdownText),0.7f);
+                _matchUIManager.ChangeCountdownText(GetSeconds(initialCountdown).ToString());
+                initialCountdown -= Time.deltaTime;
             }
         }
     }
@@ -116,7 +117,7 @@ public class MatchManager : MonoBehaviour
     {
         _matchUIManager.HideCountdownText();
     }
-
+    
     private void DisplayMatchUi()
     {
         _matchUIManager.EnableMatchUI();
