@@ -209,6 +209,11 @@ public class MatchManager : MonoBehaviour
         {
             matchUIManager.EnablePauseMenu();
             Time.timeScale = 0;
+
+            if (!isCountdownRunning)
+            {
+                matchUIManager.DisableLine();
+            }
         }
     }
 
@@ -216,6 +221,10 @@ public class MatchManager : MonoBehaviour
     {
         matchUIManager.DisablePauseMenu();
         Time.timeScale = 1;
+        if (!isCountdownRunning)
+        {
+            matchUIManager.EnabelLine();
+        }
     }
 
     public void CheckTimescale()

@@ -160,4 +160,16 @@ public class MatchUIManager : MonoBehaviour
         resumeButton.SetActive(true);
         quitButton.SetActive(true);
     }
+
+    public void DisableLine()
+    {
+        middleLine.SetActive(false);
+    }
+
+    public void EnabelLine()
+    {
+        middleLine.SetActive(true);
+    }
+    
+    
 }
