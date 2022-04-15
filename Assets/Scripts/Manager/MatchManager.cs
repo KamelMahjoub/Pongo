@@ -41,6 +41,7 @@ public class MatchManager : MonoBehaviour
     private void Update()
     {
         StartingCountdown();
+        PauseGame();
     }
 
 
@@ -200,6 +201,14 @@ public class MatchManager : MonoBehaviour
     public bool HasReachedGoalLimit()
     {
         return playerOnePoints == GetGoalsLimit() || playerTwoPoints == GetGoalsLimit();
+    }
+
+    private void PauseGame()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            _matchUIManager.EnablePauseMenu();
+        }
     }
 
   

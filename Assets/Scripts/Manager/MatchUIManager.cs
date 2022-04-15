@@ -39,7 +39,16 @@ public class MatchUIManager : MonoBehaviour
     private GameObject postMatchPanel;
     [SerializeField]
     private TextMeshProUGUI gameResultText;
-
+    
+    [Header("PAUSE COMPONENTS")]
+    [SerializeField]
+    private GameObject pauseMenuCanvas;
+    [SerializeField]
+    private GameObject settingsCanvas;
+    [SerializeField]
+    private GameObject settingsButton;
+    
+    
     private string sceneName;
     
 
@@ -118,6 +127,20 @@ public class MatchUIManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void EnablePauseMenu()
+    {
+        pauseMenuCanvas.SetActive(true);
+    }
+
+    public void DisablePauseMenu()
+    {
+        pauseMenuCanvas.SetActive(false);
+    }
+
+    public void OpenSettings()
+    {
+        settingsCanvas.SetActive(true);
+    }
 
 
 

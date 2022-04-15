@@ -11,8 +11,6 @@ namespace SlimUI.ModernMenu
 {
     public class MenuManager : MonoBehaviour
     {
-        Animator cameraObject;
-        
         [Header("THEME SETTINGS")]
         public FlexibleUIData themeController;
         
@@ -49,7 +47,6 @@ namespace SlimUI.ModernMenu
         //Initializes the variables        
         private void Init()
         {
-            cameraObject = transform.GetComponent<Animator>();
             InitMenu();
             SetThemeColors();
         }
@@ -107,18 +104,6 @@ namespace SlimUI.ModernMenu
         public void ReturnMenu()
         {
             StartCoroutine(CloseCanvasRoutine());
-        }
-        
-        //Changes the display to position2 to display the menus
-        public void Position2()
-        {
-            cameraObject.SetFloat("Animate", 1);
-        }
-
-        //Changes the display to position1 to display the main menu
-        public void Position1()
-        {
-            cameraObject.SetFloat("Animate", 0);
         }
         
         //Quits the game
