@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MatchUIManager : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class MatchUIManager : MonoBehaviour
     private GameObject postMatchPanel;
     [SerializeField]
     private TextMeshProUGUI gameResultText;
+
+    private string sceneName;
     
 
 
@@ -50,6 +53,7 @@ public class MatchUIManager : MonoBehaviour
     private void Init()
     {
         _managerScript = GetComponent<MatchManager>();
+        sceneName = "MainMenu";
     }
     
     //Displays the score of player one
@@ -107,6 +111,11 @@ public class MatchUIManager : MonoBehaviour
     public void SetGameResult(string text)
     {
         gameResultText.SetText(text);
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
 
