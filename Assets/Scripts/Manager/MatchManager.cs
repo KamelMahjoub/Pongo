@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class MatchManager : MonoBehaviour
 {
     [Header("MATCH UI")] [SerializeField] 
-    private MatchUIManager _matchUIManager;
+    private MatchUIManager matchUIManager;
     
     [Header("MATCH BALL")] [SerializeField]
     private GameObject ball;
@@ -34,7 +34,7 @@ public class MatchManager : MonoBehaviour
         if (DataManager.Instance != null)
         {
             Init(); 
-            _matchUIManager.DisableMatchUI();
+            matchUIManager.DisableMatchUI();
         }
     }
 
@@ -48,7 +48,7 @@ public class MatchManager : MonoBehaviour
     //Initializes the variables/properties
     private void Init()
     {
-        _matchUIManager = GetComponent<MatchUIManager>();
+        matchUIManager = GetComponent<MatchUIManager>();
 
         playerOnePoints = 0;
         playerTwoPoints = 0;
@@ -76,7 +76,7 @@ public class MatchManager : MonoBehaviour
         {
             playerTwoPoints++;
         }
-        _matchUIManager.DisplayScore();
+        matchUIManager.DisplayScore();
     }
 
 
@@ -100,7 +100,7 @@ public class MatchManager : MonoBehaviour
             if (initialCountdown < initialCountdownLimit)
             {
                 DisplayMatchUi();
-                _matchUIManager.ChangeCountdownText("Pong!");
+                matchUIManager.ChangeCountdownText("Pong!");
                 Invoke(nameof(HideCountdownText),0.7f);
                 initialCountdown = initialCountdownLimit;
                 Invoke(nameof(SpawnBall),1f);
@@ -108,7 +108,7 @@ public class MatchManager : MonoBehaviour
             }
             else
             {
-                _matchUIManager.ChangeCountdownText(GetSeconds(initialCountdown).ToString());
+                matchUIManager.ChangeCountdownText(GetSeconds(initialCountdown).ToString());
                 initialCountdown -= Time.deltaTime;
             }
         }
@@ -116,12 +116,12 @@ public class MatchManager : MonoBehaviour
     
     private void HideCountdownText()
     {
-        _matchUIManager.HideCountdownText();
+        matchUIManager.HideCountdownText();
     }
     
     private void DisplayMatchUi()
     {
-        _matchUIManager.EnableMatchUI();
+        matchUIManager.EnableMatchUI();
     }
    
     private int GetSeconds(float time)
@@ -175,15 +175,15 @@ public class MatchManager : MonoBehaviour
     
     private void DisplayResult(int winnerID)
     {
-        _matchUIManager.DisableMatchUI();
-        _matchUIManager.DisplayPostMatchCanvas();
+        matchUIManager.DisableMatchUI();
+        matchUIManager.DisplayPostMatchCanvas();
         if (winnerID == 0)
         {
-            _matchUIManager.SetGameResult("Draw!");
+            matchUIManager.SetGameResult("Draw!");
         }
         else
         {
-            _matchUIManager.SetGameResult("Player "+winnerID+" Wins!");
+            matchUIManager.SetGameResult("Player "+winnerID+" Wins!");
         }
     }
 
@@ -207,9 +207,24 @@ public class MatchManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            _matchUIManager.EnablePauseMenu();
+            matchUIManager.EnablePauseMenu();
+            Time.timeScale = 0;
         }
     }
+
+    public void ResumeGame()
+    {
+        matchUIManager.DisablePauseMenu();
+        Time.timeScale = 1;
+    }
+
+    public void CheckTimescale()
+    {
+        if (Time.timeScale < 1)
+            Time.timeScale = 1;
+    }
+    
+    
 
   
         

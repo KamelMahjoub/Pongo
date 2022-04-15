@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class MatchUIManager : MonoBehaviour
 {
     [SerializeField]
-    private MatchManager _managerScript;
+    private MatchManager managerScript;
     
     [Header("SCOREBOARD COMPONENTS")]
     [SerializeField] 
@@ -44,15 +44,14 @@ public class MatchUIManager : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenuCanvas;
     [SerializeField]
-    private GameObject settingsCanvas;
+    private GameObject quitPanel;
     [SerializeField]
-    private GameObject settingsButton;
-    
+    private GameObject resumeButton;
+    [SerializeField]
+    private GameObject quitButton;
     
     private string sceneName;
     
-
-
     private void Awake()
     {
         Init();
@@ -61,20 +60,20 @@ public class MatchUIManager : MonoBehaviour
 
     private void Init()
     {
-        _managerScript = GetComponent<MatchManager>();
+        managerScript = GetComponent<MatchManager>();
         sceneName = "MainMenu";
     }
     
     //Displays the score of player one
     private void DisplayPlayerOneScore()
     {
-        playerOneScore.text = "" + _managerScript.playerOnePoints;
+        playerOneScore.text = "" + managerScript.playerOnePoints;
     }
     
     //Displays the score of player two
     private void DisplayPlayerTwoScore()
     {
-        playerTwoScore.text = "" + _managerScript.playerTwoPoints;
+        playerTwoScore.text = "" + managerScript.playerTwoPoints;
     }
     
     //Displays both players scores
@@ -125,6 +124,7 @@ public class MatchUIManager : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(sceneName);
+        managerScript.CheckTimescale();
     }
 
     public void EnablePauseMenu()
@@ -137,11 +137,27 @@ public class MatchUIManager : MonoBehaviour
         pauseMenuCanvas.SetActive(false);
     }
 
-    public void OpenSettings()
+    public void DisableQuitMenu()
     {
-        settingsCanvas.SetActive(true);
+        quitPanel.SetActive(false);
+        EnablePauseButtons();
     }
 
+    public void EnableQuitMenu()
+    {
+        quitPanel.SetActive(true);
+        DisablePauseButtons();
+    }
 
+    private void DisablePauseButtons()
+    {
+        resumeButton.SetActive(false);
+        quitButton.SetActive(false);
+    }
 
+    private void EnablePauseButtons()
+    {
+        resumeButton.SetActive(true);
+        quitButton.SetActive(true);
+    }
 }
