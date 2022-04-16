@@ -25,8 +25,11 @@ public class MatchManager : MonoBehaviour
     private float startingYPosition;
     private float initialCountdown;
     private float initialCountdownLimit;
+    private float timeLimit;
     
     private bool isCountdownRunning;
+    private bool isTimerRunning;
+    private bool isGamePaused;
     
 
     private void Start()
@@ -35,6 +38,7 @@ public class MatchManager : MonoBehaviour
         {
             Init(); 
             matchUIManager.DisableMatchUI();
+            Invoke(nameof(SetGameMode),4);
         }
     }
 
@@ -42,6 +46,11 @@ public class MatchManager : MonoBehaviour
     {
         StartingCountdown();
         PauseGame();
+        
+        if (isTimerRunning)
+        {
+            UpdateTime();
+        }
     }
 
 
@@ -58,11 +67,13 @@ public class MatchManager : MonoBehaviour
         
         initialCountdown = 4;
         initialCountdownLimit = 1;
-
+        
         startingXPosition = 0;
         startingYPosition = 0;
-
+        
         isCountdownRunning = true;
+        isTimerRunning = false;
+        isGamePaused = false;
     }
     
     //Adds a point to the specified player
@@ -78,8 +89,7 @@ public class MatchManager : MonoBehaviour
         }
         matchUIManager.DisplayScore();
     }
-
-
+    
     //Sets the starting the position that the ball will spawn to
     private Vector2 StartingPosition()
     {
@@ -91,20 +101,20 @@ public class MatchManager : MonoBehaviour
     {
         Instantiate(ball, StartingPosition(), ball.transform.rotation);
     }
-
     
+    //Plays a countdown at the start of the match
     private void StartingCountdown()
     {
         if (isCountdownRunning)
         {
             if (initialCountdown < initialCountdownLimit)
             {
-                DisplayMatchUi();
+                matchUIManager.EnableMatchUI();
                 matchUIManager.ChangeCountdownText("Pong!");
-                Invoke(nameof(HideCountdownText),0.7f);
                 initialCountdown = initialCountdownLimit;
-                Invoke(nameof(SpawnBall),1f);
                 isCountdownRunning = false;
+                Invoke(nameof(HideCountdownText),0.7f);
+                Invoke(nameof(SpawnBall),1f);
             }
             else
             {
@@ -113,34 +123,45 @@ public class MatchManager : MonoBehaviour
             }
         }
     }
-    
+
+    //Hides the initial countdown text
     private void HideCountdownText()
     {
         matchUIManager.HideCountdownText();
     }
     
-    private void DisplayMatchUi()
-    {
-        matchUIManager.EnableMatchUI();
-    }
-   
+    //Returns the number of seconds of a given time
     private int GetSeconds(float time)
     {
         return Mathf.FloorToInt(time % 60);
     }
-
-    public void CheckResult()
+    
+    //Returns the number of minutes of a given time
+    private int GetMinutes(float time)
     {
-        if (IsGoalLimited())
-        {
-          CheckGoalModeResult();
-        }
-        else
-        {
-           CheckTimeModeResult(); 
-        }
+        return Mathf.FloorToInt(time / 60);
+    }
+    
+    //Gets the goal limit selected in the match menu
+    private int GetGoalsLimit()
+    {
+        return DataManager.Instance.goals;
+    }
+    
+    //Checks if the mode is goal limited
+    public bool IsGoalLimited()
+    { 
+        string goalMode = "GoalLimited";
+        return DataManager.Instance.matchMode.Equals(goalMode);
+    }
+    
+    //Checks if any of the players has reached the goal limit
+    public bool HasReachedGoalLimit()
+    {
+        return playerOnePoints == GetGoalsLimit() || playerTwoPoints == GetGoalsLimit();
     }
 
+    //Checks if one of the player has reached the goal limit
     private void CheckGoalModeResult()
     {
         if (playerOnePoints == GetGoalsLimit())
@@ -154,6 +175,7 @@ public class MatchManager : MonoBehaviour
         }
     }
 
+    //Checks the result after the timer reaches 0
     private void CheckTimeModeResult()
     {
         int drawID = 0;
@@ -172,7 +194,20 @@ public class MatchManager : MonoBehaviour
         }
     }
     
+    //Calls the appropriate check result method depending on the match type
+    public void CheckResult()
+    {
+        if (IsGoalLimited())
+        {
+          CheckGoalModeResult();
+        }
+        else
+        {
+           CheckTimeModeResult(); 
+        }
+    }
     
+    //Displays the match result
     private void DisplayResult(int winnerID)
     {
         matchUIManager.DisableMatchUI();
@@ -187,22 +222,7 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-    private int GetGoalsLimit()
-    {
-        return DataManager.Instance.goals;
-    }
-    
-    public bool IsGoalLimited()
-    { 
-        string goalMode = "GoalLimited";
-        return DataManager.Instance.matchMode.Equals(goalMode);
-    }
-    
-    public bool HasReachedGoalLimit()
-    {
-        return playerOnePoints == GetGoalsLimit() || playerTwoPoints == GetGoalsLimit();
-    }
-
+    //Pause the game whe the player uses the "Escape" button
     private void PauseGame()
     {
         if (Input.GetKey(KeyCode.Escape))
@@ -217,22 +237,69 @@ public class MatchManager : MonoBehaviour
         }
     }
 
+    //Resumes the game
     public void ResumeGame()
     {
         matchUIManager.DisablePauseMenu();
-        Time.timeScale = 1;
+        FreezeGame();
         if (!isCountdownRunning)
         {
-            matchUIManager.EnabelLine();
+            matchUIManager.EnableLine();
         }
     }
-
-    public void CheckTimescale()
+    
+    //Sets the selected game mode on the match interface
+    private void SetGameMode()
     {
-        if (Time.timeScale < 1)
-            Time.timeScale = 1;
+        if (IsGoalLimited())
+        {
+            string mode = "First to "+GetGoalsLimit();
+            matchUIManager.SetGameModeText(mode);
+        }
+        else
+        {
+            timeLimit = GetTime();
+            isTimerRunning = true;
+        }
+    }
+    //Freezes the game time
+    private void FreezeGame()
+    {
+        Time.timeScale = 0;
+        isGamePaused = true;
+    }
+
+    //Unfreezes the game time
+    public void UnfreezeGame()
+    {
+        Time.timeScale = 1;
+        isGamePaused = false;
+    }
+
+    //Returns the time selected in the match menu
+    private float GetTime()
+    {
+        int nbSeconds = 60;
+        return DataManager.Instance.timeLimit * nbSeconds;
     }
     
+
+
+    private void UpdateTime()
+    {
+        if (timeLimit <= 0)
+        {
+            isTimerRunning = false;
+            CheckResult();
+        }
+        else
+        {
+            matchUIManager.SetGameModeText(GetMinutes(timeLimit)+" : "+GetSeconds(timeLimit) );
+            timeLimit -= Time.deltaTime;
+        }
+    }
+    
+   
     
 
   

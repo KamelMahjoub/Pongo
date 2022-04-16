@@ -17,6 +17,8 @@ public class MatchUIManager : MonoBehaviour
     private TextMeshProUGUI playerOneScore;
     [SerializeField]
     private TextMeshProUGUI playerTwoScore;
+    [SerializeField]
+    private TextMeshProUGUI gameModeText;
   
     [Header("PLAYER COMPONENTS")]
     [SerializeField]
@@ -124,7 +126,7 @@ public class MatchUIManager : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(sceneName);
-        managerScript.CheckTimescale();
+        managerScript.UnfreezeGame();
     }
 
     public void EnablePauseMenu()
@@ -166,10 +168,17 @@ public class MatchUIManager : MonoBehaviour
         middleLine.SetActive(false);
     }
 
-    public void EnabelLine()
+    public void EnableLine()
     {
         middleLine.SetActive(true);
     }
+
+    public void SetGameModeText(string gameMode)
+    {
+        gameModeText.text = gameMode;
+    }
+    
+    
     
     
 }

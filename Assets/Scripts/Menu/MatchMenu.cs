@@ -128,6 +128,7 @@ public class MatchMenu : MonoBehaviour
         goalHighlight.SetActive(false);
         goalPanel.SetActive(false);
         timePanel.SetActive(true);
+        SelectFirstTimeLimit();
         mode = MatchMode.TimeLimited.ToString();
     }
     
