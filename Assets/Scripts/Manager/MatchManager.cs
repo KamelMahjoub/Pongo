@@ -29,7 +29,7 @@ public class MatchManager : MonoBehaviour
     
     private bool isCountdownRunning;
     private bool isTimerRunning;
-    private bool isGamePaused;
+    public bool isGamePaused;
     
 
     private void Start()
@@ -38,7 +38,7 @@ public class MatchManager : MonoBehaviour
         {
             Init(); 
             matchUIManager.DisableMatchUI();
-            Invoke(nameof(SetGameMode),3);
+            Invoke(nameof(SetGameMode),2.8f);
         }
     }
 
@@ -229,10 +229,15 @@ public class MatchManager : MonoBehaviour
         {
             matchUIManager.EnablePauseMenu();
             Time.timeScale = 0;
+            isGamePaused = true;
 
             if (!isCountdownRunning)
             {
                 matchUIManager.DisableLine();
+            }
+            else
+            {
+                HideCountdownText();
             }
         }
     }
@@ -241,10 +246,15 @@ public class MatchManager : MonoBehaviour
     public void ResumeGame()
     {
         matchUIManager.DisablePauseMenu();
-        FreezeGame();
+        UnfreezeGame();
+        isGamePaused = false;
         if (!isCountdownRunning)
         {
             matchUIManager.EnableLine();
+        }
+        else
+        {
+            matchUIManager.ShowCountdownText();
         }
     }
     
