@@ -38,7 +38,7 @@ public class MatchManager : MonoBehaviour
         {
             Init(); 
             matchUIManager.DisableMatchUI();
-            Invoke(nameof(SetGameMode),4);
+            Invoke(nameof(SetGameMode),3);
         }
     }
 
@@ -283,18 +283,17 @@ public class MatchManager : MonoBehaviour
         return DataManager.Instance.timeLimit * nbSeconds;
     }
     
-
-
     private void UpdateTime()
     {
-        if (timeLimit <= 0)
+       
+        if (timeLimit < 1)
         {
             isTimerRunning = false;
             CheckResult();
         }
         else
         {
-            matchUIManager.SetGameModeText(GetMinutes(timeLimit)+" : "+GetSeconds(timeLimit) );
+            matchUIManager.SetGameModeText(GetMinutes(timeLimit)+" : "+GetSeconds(timeLimit).ToString("D2"));
             timeLimit -= Time.deltaTime;
         }
     }
