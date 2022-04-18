@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 326129671}
   m_Layer: 0
   m_Name: 'Player1 '
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1008,7 +1008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a42b5fc587bf764ab93ce84c8be1748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOne: 1
+  speed: 0
+  paddleRb: {fileID: 326129668}
 --- !u!114 &326129671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3654,10 +3655,11 @@ GameObject:
   - component: {fileID: 1370180127}
   - component: {fileID: 1370180126}
   - component: {fileID: 1370180128}
+  - component: {fileID: 1370180130}
   - component: {fileID: 1370180129}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3781,12 +3783,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370180123}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a42b5fc587bf764ab93ce84c8be1748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOne: 0
+  speed: 0
+  paddleRb: {fileID: 1370180126}
 --- !u!114 &1370180129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3800,6 +3803,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bouncePower: 0.15
+--- !u!114 &1370180130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370180123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5743355c82a281c458838e16b01c0354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  paddleRb: {fileID: 1370180126}
 --- !u!1 &1388216007
 GameObject:
   m_ObjectHideFlags: 0
