@@ -6,17 +6,27 @@ using Random = UnityEngine.Random;
 
 public class MatchManager : MonoBehaviour
 {
-    [Header("MATCH UI")] [SerializeField] 
+    [Header("MATCH UI")] 
+    [SerializeField] 
     private MatchUIManager matchUIManager;
     
-    [Header("MATCH BALL")] [SerializeField]
+    [Header("MATCH BALL")] 
+    [SerializeField]
     private GameObject ball;
 
+    [Header("SCRIPTS")]
     [SerializeField] 
     private Ball ballScript;
-
+    [SerializeField] 
+    private Player player2Script;
+    [SerializeField] 
+    private Bot botScript;
+    
+    
     public int playerOnePoints { get; set; }
     public int playerTwoPoints { get; set; }
+    
+    public bool isGamePaused { get; set; }
 
     private int playerOneID;
     private int playerTwoID;
@@ -29,7 +39,9 @@ public class MatchManager : MonoBehaviour
     
     private bool isCountdownRunning;
     private bool isTimerRunning;
-    public bool isGamePaused;
+    
+
+   
     
 
     private void Start()
@@ -74,6 +86,8 @@ public class MatchManager : MonoBehaviour
         isCountdownRunning = true;
         isTimerRunning = false;
         isGamePaused = false;
+        
+        SetPlayerTwo();
     }
     
     //Adds a point to the specified player
@@ -295,7 +309,6 @@ public class MatchManager : MonoBehaviour
     
     private void UpdateTime()
     {
-       
         if (timeLimit < 1)
         {
             isTimerRunning = false;
@@ -305,6 +318,25 @@ public class MatchManager : MonoBehaviour
         {
             matchUIManager.SetGameModeText(GetMinutes(timeLimit)+" : "+GetSeconds(timeLimit).ToString("D2"));
             timeLimit -= Time.deltaTime;
+        }
+    }
+
+    private bool IsPlayerTwoBot()
+    {
+        return DataManager.Instance.isBot;
+    }
+    
+    private void SetPlayerTwo()
+    {
+        if (IsPlayerTwoBot())
+        {
+            player2Script.enabled = false;
+            botScript.enabled = true;
+        }
+        else
+        {
+            player2Script.enabled = true;
+            botScript.enabled = false;
         }
     }
     
