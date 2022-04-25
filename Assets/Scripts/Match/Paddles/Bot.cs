@@ -1,54 +1,60 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bot : Paddle
 {
     private GameObject ball;
-
+    private Rigidbody2D ballRb;
+    private string ballTag;
+    
     private void Start()
     {
-        speed = 5;
+        Init();
     }
-    private void Update()
+    
+   
+
+    private void FixedUpdate()
     {
-
-        if (CheckIfBallExists())
+        if (DoesBallExist(ballTag))
         {
-            Rigidbody2D ballRb = GameObject.Find("Ball(Clone)").GetComponent<Rigidbody2D>();
-
-            if (ballRb.velocity.x > 0f)
-            {
+            GetBall(ballTag);
+            Debug.Log(ballRb.velocity);
+            
                 if (ballRb.position.y > transform.position.y)
                 {
-                    paddleRb.velocity = Move(Vector2.up);
+                    paddleRb.AddForce(Vector2.up * speed ); 
                 }
                 else if (ballRb.position.y < transform.position.y)
                 {
-                   paddleRb.velocity = Move(Vector2.down);
+                    paddleRb.AddForce(Vector2.down * speed);
                 }
-            }
-            else
-            {
-                paddleRb.velocity = Move(transform.position.y > 0f ? Vector2.down : Vector2.up);
-            }
         }
     }
 
 
-    private bool CheckIfBallExists()
+    private void Init()
     {
-        return GameObject.Find("Ball(Clone)");
+        speed = 55;
+        ballTag = "Ball"; 
+    }
+    
+    private bool DoesBallExist(string tag)
+    {
+        return GameObject.FindWithTag(tag);
+    }
+
+    private void GetBall(string tag)
+    {
+        ball = GameObject.FindWithTag(tag);
+        ballRb = ball.GetComponent<Rigidbody2D>();
     }
 
 
 
 
-    private Vector2 Move(Vector2 direction)
-    {
-        return new Vector2(paddleRb.velocity.x, direction.y * speed );
-    }
-    
-    
+
 }

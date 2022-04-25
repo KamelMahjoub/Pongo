@@ -53,12 +53,12 @@ public class Ball : MonoBehaviour
     //Generates a random vector2 position that the ball will be launched to 
     private Vector2 RandomStartingPosition()
     {
-        float AxisPosition = RandomAxisPosition();
+        float axisPosition = RandomAxisPosition();
         float startingXPosition = 1;
         float startingYPosition = RandomYPosition();
         
         //if the axis position is > 0 , then the ball will go to the right; else it will go to the left.
-        if (AxisPosition > 0)
+        if (axisPosition > 0)
         {
             return new Vector2(startingXPosition, startingYPosition);
         }

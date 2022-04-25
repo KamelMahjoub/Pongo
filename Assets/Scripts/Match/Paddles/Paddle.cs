@@ -22,7 +22,8 @@ public class Paddle : MonoBehaviour
     {
         return (ballPos.y - playerPos.y) / paddleHeight;
     }
-    
+   
+    /*
     private void OnCollisionEnter2D(Collision2D col)
     {
         Vector2 direction;
@@ -45,4 +46,5 @@ public class Paddle : MonoBehaviour
         // Sets the velocity with direction * speed
        GetComponent<Rigidbody2D>().velocity = direction * speed * 1.5f;
     }
+    */
 }
