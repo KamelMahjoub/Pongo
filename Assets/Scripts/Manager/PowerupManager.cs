@@ -13,8 +13,8 @@ public class PowerupManager : MonoBehaviour
     private GameObject[] powerupArray;
 
     private int nbPowerups;
-
-    public bool IsPowerupOnField {get; set; }
+    
+    public bool isPowerupOnField;
 
 
     private void Awake()
@@ -24,13 +24,13 @@ public class PowerupManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnPowerUpRoutine());
+        SpawnPowerUp();
     }
 
     private void Init()
     {
         nbPowerups = powerupArray.Length;
-        IsPowerupOnField = false;
+        isPowerupOnField = false;
     }
 
 
@@ -60,17 +60,21 @@ public class PowerupManager : MonoBehaviour
     }
 
 
-    private IEnumerator SpawnPowerUpRoutine()
+    private void CreatePowerUp()
     {
-        if (!IsPowerupOnField)
+        if (!isPowerupOnField)
         {
-            int spawnInterval = 5;
-            yield return new WaitForSeconds(spawnInterval);
-
             Instantiate(powerupArray[GetRandomPowerupIndex()], GetRandomPosition(),
                 powerupArray[GetRandomPowerupIndex()].transform.rotation);
-
-            IsPowerupOnField = true;  
+            
+            isPowerupOnField = true;
         }
     }
+
+    public void SpawnPowerUp()
+    {
+        int spawnDelay = 5;
+        Invoke(nameof(CreatePowerUp),spawnDelay);
+    }
+    
 }

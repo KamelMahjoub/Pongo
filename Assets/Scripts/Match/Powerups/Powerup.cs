@@ -27,8 +27,8 @@ public abstract class Powerup : MonoBehaviour
     {
         Destroy(gameObject);
         ActivateEffect();;
-        powerupScript.IsPowerupOnField = false;
-        Debug.Log("Triggered");
+        powerupScript.isPowerupOnField = false;
+        powerupScript.SpawnPowerUp();
     }
     
     
