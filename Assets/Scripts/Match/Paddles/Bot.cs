@@ -14,31 +14,20 @@ public class Bot : Paddle
     {
         Init();
     }
-    
-   
 
     private void FixedUpdate()
     {
         if (DoesBallExist(ballTag))
         {
             GetBall(ballTag);
-            Debug.Log(ballRb.velocity);
-            
-                if (ballRb.position.y > transform.position.y)
-                {
-                    paddleRb.AddForce(Vector2.up * speed ); 
-                }
-                else if (ballRb.position.y < transform.position.y)
-                {
-                    paddleRb.AddForce(Vector2.down * speed);
-                }
+            Move();
         }
     }
 
 
     private void Init()
     {
-        speed = 55;
+        speed = 30;
         ballTag = "Ball"; 
     }
     
@@ -53,6 +42,17 @@ public class Bot : Paddle
         ballRb = ball.GetComponent<Rigidbody2D>();
     }
 
+    private void Move()
+    { 
+        if (ballRb.position.y > transform.position.y)
+        {
+            paddleRb.AddForce(Vector2.up * speed ); 
+        }
+        else if (ballRb.position.y < transform.position.y)
+        { 
+            paddleRb.AddForce(Vector2.down * speed);
+        } 
+    }
 
 
 
