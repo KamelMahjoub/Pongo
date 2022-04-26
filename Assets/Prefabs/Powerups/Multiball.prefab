@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8782964807445896933}
   - component: {fileID: 8782964807445896932}
   - component: {fileID: 4232730696656050594}
-  m_Layer: 0
+  - component: {fileID: 6078488932786963550}
+  m_Layer: 2
   m_Name: Multiball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8782964807445896931}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.99, y: -2.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 8782964808000757395}
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 0.96060187, b: 0.051886797, a: 1}
   m_FlipX: 0
@@ -100,6 +101,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &6078488932786963550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782964807445896931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa50686e10d9d8e459cf94ca0c0d4b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupScript: {fileID: 0}
 --- !u!1 &8782964808000757394
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +125,7 @@ GameObject:
   - component: {fileID: 8782964808000757395}
   - component: {fileID: 8782964808000757397}
   - component: {fileID: 8782964808000757396}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

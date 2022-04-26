@@ -22,12 +22,9 @@ public class PowerupManager : MonoBehaviour
         Init();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (!IsPowerupOnField)
-        {
-            StartCoroutine(SpawnPowerUpRoutine());
-        }
+        StartCoroutine(SpawnPowerUpRoutine());
     }
 
     private void Init()
@@ -65,12 +62,15 @@ public class PowerupManager : MonoBehaviour
 
     private IEnumerator SpawnPowerUpRoutine()
     {
-        int spawnInterval = 5;
-        yield return new WaitForSeconds(spawnInterval);
+        if (!IsPowerupOnField)
+        {
+            int spawnInterval = 5;
+            yield return new WaitForSeconds(spawnInterval);
 
-        Instantiate(powerupArray[GetRandomPowerupIndex()], GetRandomPosition(),
-            powerupArray[GetRandomPowerupIndex()].transform.rotation);
+            Instantiate(powerupArray[GetRandomPowerupIndex()], GetRandomPosition(),
+                powerupArray[GetRandomPowerupIndex()].transform.rotation);
 
-        IsPowerupOnField = true;
+            IsPowerupOnField = true;  
+        }
     }
 }
