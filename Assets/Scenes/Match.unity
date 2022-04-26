@@ -883,7 +883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &326129666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2517,7 +2517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &728249964
 Transform:
   m_ObjectHideFlags: 0
@@ -3112,6 +3112,7 @@ GameObject:
   - component: {fileID: 1050026198}
   - component: {fileID: 1050026199}
   - component: {fileID: 1050026197}
+  - component: {fileID: 1050026200}
   m_Layer: 0
   m_Name: MatchManager
   m_TagString: Untagged
@@ -3178,6 +3179,22 @@ MonoBehaviour:
   ballScript: {fileID: 3960248616908346764, guid: 3aa725cd3d32a9341a8d9ec9b00769a6, type: 3}
   player2Script: {fileID: 1370180128}
   botScript: {fileID: 1370180130}
+--- !u!114 &1050026200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050026196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ae31814ff97d844b8ad8ee89718fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupArray:
+  - {fileID: 8782964807445896931, guid: 7be0aedd4cd263e49a23128b5763185e, type: 3}
+  - {fileID: 6189856484983950311, guid: e9b3b5b33fcdd8049991605ca5133d23, type: 3}
+  - {fileID: 4024177904134709267, guid: 3661512723310df44a4044e6309d2538, type: 3}
 --- !u!1 &1073240182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3664,7 +3681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1370180124
 SpriteRenderer:
   m_ObjectHideFlags: 0
