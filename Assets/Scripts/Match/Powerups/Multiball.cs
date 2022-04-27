@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Multiball : Powerup
 {
+    [SerializeField]
+    private Ball extraBall;
+    
+    
     protected override void ActivateEffect()
     {
-        Debug.Log(" Multiball Effect");
+        Instantiate(extraBall, managerScript.StartingPosition(), extraBall.transform.rotation);
     }
 }

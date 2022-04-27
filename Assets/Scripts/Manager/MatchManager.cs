@@ -105,7 +105,7 @@ public class MatchManager : MonoBehaviour
     }
     
     //Sets the starting the position that the ball will spawn to
-    private Vector2 StartingPosition()
+    public Vector2 StartingPosition()
     {
         return new Vector2(startingXPosition, startingYPosition);
     }

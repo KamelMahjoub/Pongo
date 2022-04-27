@@ -5,19 +5,44 @@ using UnityEngine;
 
 public abstract class Powerup : MonoBehaviour
 {
-    [Header("Script")]
-    [SerializeField]
+    [Header("Script")] 
     private PowerupManager powerupScript;
+    protected MatchManager managerScript;
 
+    [SerializeField] 
+    protected GameObject playerOne;
+    [SerializeField]
+    protected GameObject playerTwo;
+
+    private float defaultXScaleValue;
+    protected float defaultYScaleValue;
+    private float defaultZScaleValue;
+
+
+    private void Start()
+    {
+        SetPLayers();
+    }
 
     private void Awake()
     {
         Init();
     }
 
+    protected void SetPLayers()
+    {  
+        playerOne = GameObject.FindWithTag("Player1");
+        playerTwo = GameObject.FindWithTag("Player2");
+    }
+
     private void Init()
     {
         powerupScript = GameObject.Find("MatchManager").GetComponent<PowerupManager>();
+        managerScript = GameObject.Find("MatchManager").GetComponent<MatchManager>();
+
+        defaultXScaleValue = 0.2f;
+        defaultYScaleValue = 1.5f;
+        defaultZScaleValue = 1;
     }
 
 
@@ -30,6 +55,12 @@ public abstract class Powerup : MonoBehaviour
         powerupScript.isPowerupOnField = false;
         powerupScript.SpawnPowerUp();
     }
+
+    protected Vector3 SetYScaleValue(float yValue)
+    {
+        return new Vector3(defaultXScaleValue, yValue, defaultZScaleValue);
+    }
+    
     
     
 }

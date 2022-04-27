@@ -3195,6 +3195,7 @@ MonoBehaviour:
   - {fileID: 8782964807445896931, guid: 7be0aedd4cd263e49a23128b5763185e, type: 3}
   - {fileID: 6189856484983950311, guid: e9b3b5b33fcdd8049991605ca5133d23, type: 3}
   - {fileID: 4024177904134709267, guid: 3661512723310df44a4044e6309d2538, type: 3}
+  isPowerupOnField: 0
 --- !u!1 &1073240182
 GameObject:
   m_ObjectHideFlags: 0

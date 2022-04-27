@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupScript: {fileID: 0}
+  extraBall: {fileID: 2692075602972690106, guid: 5ddb7f4b05ec68648833477461721b1e, type: 3}
 --- !u!1 &8782964808000757394
 GameObject:
   m_ObjectHideFlags: 0

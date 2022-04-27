@@ -5,21 +5,33 @@ using UnityEngine;
 
 public class Shrink : Powerup
 {
-    protected override void ActivateEffect()
+    private float shrinkValue;
+    
+    void Awake()
     {
-        Debug.Log("Shrink Effect");
-    }
-/*
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        Destroy(gameObject);
-        ActivateEffect();;
-        Debug.Log("Triggered");
+        Init();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void Init()
     {
-        Debug.Log("aaaaaaaaaa");
+        shrinkValue = 1f;
     }
-    */
+    protected override void ActivateEffect()
+    { 
+        
+    }
+
+    private IEnumerator ShrinkPlayersRoutine()
+    {
+       Vector3 playerOneScale = playerOne.transform.localScale;
+       Vector3 playerTwoScale = playerTwo.transform.localScale;
+       yield return new WaitForSeconds(7); 
+       playerOneScale = SetYScaleValue(shrinkValue);
+       playerTwoScale = SetYScaleValue(shrinkValue);
+        
+       playerOneScale = SetYScaleValue(defaultYScaleValue);
+       playerTwoScale = SetYScaleValue(defaultYScaleValue); 
+    }
+    
+
 }

@@ -41,7 +41,10 @@ public class Goal : MonoBehaviour
         }
         else
         {
-            matchManager.SpawnBall();
+            if (col.tag.Equals("Ball"))
+            {
+                matchManager.SpawnBall(); 
+            }
         }
     }
 }

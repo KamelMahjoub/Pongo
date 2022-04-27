@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cbd413de-5fa7-4d8e-bfaa-101b173245cd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pongo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pongo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/PowerupManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/PowerupManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Powerups/Multiball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Powerups/Multiball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Match.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Match.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/MatchManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/MatchManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Match/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Match/Goal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Multiball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Multiball.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Powerup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Powerup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Shrink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Shrink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +91,8 @@
       <workItem from="1650117416877" duration="7645000" />
       <workItem from="1650282345882" duration="14939000" />
       <workItem from="1650891071374" duration="13717000" />
-      <workItem from="1650968552885" duration="15801000" />
+      <workItem from="1650968552885" duration="16058000" />
+      <workItem from="1651067021908" duration="7649000" />
     </task>
     <servers />
   </component>
