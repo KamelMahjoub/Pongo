@@ -25,7 +25,7 @@ public class PowerupManager : MonoBehaviour
 
     private void Start()
     {
-        //SpawnPowerUp();
+        SpawnPowerUp();
     }
 
     private void Init()
@@ -77,7 +77,7 @@ public class PowerupManager : MonoBehaviour
 
     public void SpawnPowerUp()
     {
-        int spawnDelay = 5;
+        int spawnDelay = 8;
         Invoke(nameof(CreatePowerUp),spawnDelay);
     }
 

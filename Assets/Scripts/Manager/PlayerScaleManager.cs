@@ -36,13 +36,24 @@ public class PlayerScaleManager : MonoBehaviour
         playerOne.transform.localScale = SetYScaleValue(yValue);
         playerTwo.transform.localScale = SetYScaleValue(yValue);
     }
-
-    public void ResetScale()
+    private void SetDefaultScale()
     {
         playerOne.transform.localScale = SetYScaleValue(defaultYScaleValue);
-        playerTwo.transform.localScale = SetYScaleValue(defaultYScaleValue);  
+        playerTwo.transform.localScale = SetYScaleValue(defaultYScaleValue); 
     }
 
+    private bool CheckScale()
+    {
+        return playerOne.transform.localScale.y != defaultYScaleValue;
+    }
+    
+    public void ResetScale()
+    {
+        if (CheckScale())
+        {
+            SetDefaultScale();
+        }
+    }
    
     
     
