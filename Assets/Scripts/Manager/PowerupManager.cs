@@ -17,10 +17,7 @@ public class PowerupManager : MonoBehaviour
     private int nbPowerups;
     
     public bool isPowerupOnField;
-
     
-
-
     private void Awake()
     {
         Init();

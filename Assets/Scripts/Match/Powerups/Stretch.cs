@@ -4,8 +4,27 @@ using UnityEngine;
 
 public class Stretch : Powerup
 {
+    private float stretchValue;
+    
+    void Awake()
+    {
+        Init();
+    }
+
+    private new void Init()
+    {
+        base.Init();
+        stretchValue = 2.2f;
+    }
+    
     protected override void ActivateEffect()
     {
-        Debug.Log("Stretch Effect");
+        ShrinkPlayers();
     }
+
+    private void ShrinkPlayers()
+    {
+        scaleManager.ChangeScale(stretchValue);
+    }
+
 }

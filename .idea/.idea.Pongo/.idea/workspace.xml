@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbd413de-5fa7-4d8e-bfaa-101b173245cd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Pongo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pongo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Match.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Match.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/PowerupManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/PowerupManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Powerup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Powerup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Shrink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Shrink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Stretch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Match/Powerups/Stretch.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +86,7 @@
       <workItem from="1650891071374" duration="13717000" />
       <workItem from="1650968552885" duration="16058000" />
       <workItem from="1651067021908" duration="7649000" />
-      <workItem from="1651150142543" duration="9265000" />
+      <workItem from="1651150142543" duration="9710000" />
     </task>
     <servers />
   </component>
