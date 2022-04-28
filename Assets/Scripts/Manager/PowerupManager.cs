@@ -80,6 +80,7 @@ public class PowerupManager : MonoBehaviour
         int spawnDelay = 8;
         Invoke(nameof(CreatePowerUp),spawnDelay);
     }
+    
 
 
 

@@ -21,12 +21,12 @@ public class MatchManager : MonoBehaviour
     private Player player2Script;
     [SerializeField] 
     private Bot botScript;
+    [SerializeField]
+    private PowerupManager powerupScript;
     
     [Header("POWERUP MANAGER")]
     [SerializeField] 
     private GameObject powerupManager ;
-    
-    
     
     
     public int playerOnePoints { get; set; }
@@ -353,10 +353,12 @@ public class MatchManager : MonoBehaviour
         if (ArePowerupsOn())
         {
             powerupManager.SetActive(true);
+            powerupScript.enabled = true;
         }
         else
         {
             powerupManager.SetActive(false);
+            powerupScript.enabled = false;
         }
     }
 
