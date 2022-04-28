@@ -12,9 +12,13 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] 
     private GameObject[] powerupArray;
 
+    private PlayerScaleManager scaleManager;
+    
     private int nbPowerups;
     
     public bool isPowerupOnField;
+
+    
 
 
     private void Awake()
@@ -24,11 +28,12 @@ public class PowerupManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnPowerUp();
+        //SpawnPowerUp();
     }
 
     private void Init()
     {
+        scaleManager = GameObject.Find("MatchManager").GetComponent<PlayerScaleManager>();
         nbPowerups = powerupArray.Length;
         isPowerupOnField = false;
     }
@@ -67,6 +72,8 @@ public class PowerupManager : MonoBehaviour
             Instantiate(powerupArray[GetRandomPowerupIndex()], GetRandomPosition(),
                 powerupArray[GetRandomPowerupIndex()].transform.rotation);
             
+            scaleManager.ResetScale();
+
             isPowerupOnField = true;
         }
     }
@@ -76,5 +83,9 @@ public class PowerupManager : MonoBehaviour
         int spawnDelay = 5;
         Invoke(nameof(CreatePowerUp),spawnDelay);
     }
-    
+
+
+
+
+
 }

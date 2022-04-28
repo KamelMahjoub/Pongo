@@ -8,44 +8,21 @@ public abstract class Powerup : MonoBehaviour
     [Header("Script")] 
     private PowerupManager powerupScript;
     protected MatchManager managerScript;
-
-    [SerializeField] 
-    protected GameObject playerOne;
-    [SerializeField]
-    protected GameObject playerTwo;
-
-    private float defaultXScaleValue;
-    protected float defaultYScaleValue;
-    private float defaultZScaleValue;
-
-
-    private void Start()
-    {
-        SetPLayers();
-    }
+    protected PlayerScaleManager scaleManager;
+    
 
     private void Awake()
     {
         Init();
     }
-
-    protected void SetPLayers()
-    {  
-        playerOne = GameObject.FindWithTag("Player1");
-        playerTwo = GameObject.FindWithTag("Player2");
-    }
-
-    private void Init()
+    
+    protected void Init()
     {
         powerupScript = GameObject.Find("MatchManager").GetComponent<PowerupManager>();
         managerScript = GameObject.Find("MatchManager").GetComponent<MatchManager>();
-
-        defaultXScaleValue = 0.2f;
-        defaultYScaleValue = 1.5f;
-        defaultZScaleValue = 1;
+        scaleManager = GameObject.Find("MatchManager").GetComponent<PlayerScaleManager>();
     }
-
-
+    
     protected abstract void ActivateEffect();
     
     private void OnTriggerEnter2D(Collider2D col)
@@ -56,10 +33,8 @@ public abstract class Powerup : MonoBehaviour
         powerupScript.SpawnPowerUp();
     }
 
-    protected Vector3 SetYScaleValue(float yValue)
-    {
-        return new Vector3(defaultXScaleValue, yValue, defaultZScaleValue);
-    }
+   
+
     
     
     

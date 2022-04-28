@@ -12,26 +12,22 @@ public class Shrink : Powerup
         Init();
     }
 
-    private void Init()
+    private new void Init()
     {
+        base.Init();
         shrinkValue = 1f;
     }
     protected override void ActivateEffect()
-    { 
-        
+    {
+        ShrinkPlayers();
     }
 
-    private IEnumerator ShrinkPlayersRoutine()
+    private void ShrinkPlayers()
     {
-       Vector3 playerOneScale = playerOne.transform.localScale;
-       Vector3 playerTwoScale = playerTwo.transform.localScale;
-       yield return new WaitForSeconds(7); 
-       playerOneScale = SetYScaleValue(shrinkValue);
-       playerTwoScale = SetYScaleValue(shrinkValue);
-        
-       playerOneScale = SetYScaleValue(defaultYScaleValue);
-       playerTwoScale = SetYScaleValue(defaultYScaleValue); 
+        scaleManager.ChangeScale(shrinkValue);
     }
+
+  
     
 
 }
