@@ -22,6 +22,12 @@ public class MatchManager : MonoBehaviour
     [SerializeField] 
     private Bot botScript;
     
+    [Header("POWERUP MANAGER")]
+    [SerializeField] 
+    private GameObject powerupManager ;
+    
+    
+    
     
     public int playerOnePoints { get; set; }
     public int playerTwoPoints { get; set; }
@@ -40,10 +46,6 @@ public class MatchManager : MonoBehaviour
     private bool isCountdownRunning;
     private bool isTimerRunning;
     
-
-   
-    
-
     private void Start()
     {
         if (DataManager.Instance != null)
@@ -88,6 +90,7 @@ public class MatchManager : MonoBehaviour
         isGamePaused = false;
         
         SetPlayerTwo();
+        SetPowerups();
     }
     
     //Adds a point to the specified player
@@ -339,12 +342,30 @@ public class MatchManager : MonoBehaviour
             botScript.enabled = false;
         }
     }
-    
-   
-    
 
-  
-        
+    private bool ArePowerupsOn()
+    {
+        return DataManager.Instance.canPowerup;
+    }
+
+    private void SetPowerups()
+    {
+        if (ArePowerupsOn())
+        {
+            powerupManager.SetActive(true);
+        }
+        else
+        {
+            powerupManager.SetActive(false);
+        }
+    }
+
+
+
+
+
+
+
 
 
 

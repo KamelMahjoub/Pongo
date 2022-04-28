@@ -18,9 +18,9 @@ public abstract class Powerup : MonoBehaviour
     
     protected void Init()
     {
-        powerupScript = GameObject.Find("MatchManager").GetComponent<PowerupManager>();
         managerScript = GameObject.Find("MatchManager").GetComponent<MatchManager>();
-        scaleManager = GameObject.Find("MatchManager").GetComponent<PlayerScaleManager>();
+        powerupScript = GameObject.Find("PowerupManager").GetComponent<PowerupManager>();
+        scaleManager = GameObject.Find("PowerupManager").GetComponent<PlayerScaleManager>();
     }
     
     protected abstract void ActivateEffect();

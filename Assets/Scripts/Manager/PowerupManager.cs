@@ -30,7 +30,7 @@ public class PowerupManager : MonoBehaviour
 
     private void Init()
     {
-        scaleManager = GameObject.Find("MatchManager").GetComponent<PlayerScaleManager>();
+        scaleManager = GameObject.Find("PowerupManager").GetComponent<PlayerScaleManager>();
         nbPowerups = powerupArray.Length;
         isPowerupOnField = false;
     }
