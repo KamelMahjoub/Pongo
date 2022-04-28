@@ -23,11 +23,10 @@ public class Bot : Paddle
             Move();
         }
     }
-
-
+    
     private void Init()
     {
-        speed = 30;
+        speed = 0.95f;
         ballTag = "Ball"; 
     }
     
@@ -43,15 +42,19 @@ public class Bot : Paddle
     }
 
     private void Move()
-    { 
-        if (ballRb.position.y > transform.position.y)
+    {
+        if (ballRb.velocity.x > 0)
         {
-            paddleRb.AddForce(Vector2.up * speed ); 
+            if (ballRb.position.y > transform.position.y)
+            {
+                paddleRb.velocity = Vector2.up * speed;
+            }
+            else if (ballRb.position.y < transform.position.y)
+            {
+                paddleRb.velocity = Vector2.down * speed;
+            } 
         }
-        else if (ballRb.position.y < transform.position.y)
-        { 
-            paddleRb.AddForce(Vector2.down * speed);
-        } 
+        
     }
 
 
