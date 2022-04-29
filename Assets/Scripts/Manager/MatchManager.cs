@@ -229,6 +229,7 @@ public class MatchManager : MonoBehaviour
     {
         matchUIManager.DisableMatchUI();
         matchUIManager.DisplayPostMatchCanvas();
+        DestroyBall();
         if (winnerID == 0)
         {
             matchUIManager.SetGameResult("Draw!");
@@ -362,6 +363,42 @@ public class MatchManager : MonoBehaviour
         }
     }
 
+
+    private bool DoesBallExists()
+    {
+        return GameObject.FindWithTag("Ball");
+    }
+
+    private GameObject GetBall()
+    {
+        return GameObject.FindWithTag("Ball");
+    }
+    
+    private bool DoesExtraBallExists()
+    {
+        return GameObject.FindWithTag("ExtraBall");
+    }
+
+    private GameObject GetExtraBall()
+    {
+        return GameObject.FindWithTag("ExtraBall");
+    }
+
+    private void DestroyBall()
+    {
+        if (DoesBallExists())
+        {
+            Destroy(GetBall());
+        }
+
+        if (ArePowerupsOn())
+        {
+            if (DoesExtraBallExists())
+            {
+                Destroy(GetExtraBall());
+            }
+        }
+    }
 
 
 
