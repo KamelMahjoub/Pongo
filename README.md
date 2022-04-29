@@ -6,8 +6,9 @@
  
  This project is a learning project made with **Unity2D** in my path of learning ***Game Developemnt***.
  
- You can try the game and download the pc version on [Itch.io](https://kamelmahjoub.itch.io/pongo)
-
+ You can try the game and download the pc version on [Itch.io](https://kamelmahjoub.itch.io/pongo).
+ 
+ Source code can be downloaded [here](https://github.com/KamelMahjoub/Pongo/releases).
 
 ## Game Description
  
