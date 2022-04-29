@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6078488932786963550}
   m_Layer: 2
   m_Name: Multiball
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa50686e10d9d8e459cf94ca0c0d4b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupScript: {fileID: 0}
   extraBall: {fileID: 2692075602972690106, guid: 5ddb7f4b05ec68648833477461721b1e, type: 3}
 --- !u!1 &8782964808000757394
 GameObject:

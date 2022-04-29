@@ -230,6 +230,7 @@ public class MatchManager : MonoBehaviour
         matchUIManager.DisableMatchUI();
         matchUIManager.DisplayPostMatchCanvas();
         DestroyBall();
+        DestroyPowerup();
         if (winnerID == 0)
         {
             matchUIManager.SetGameResult("Draw!");
@@ -409,8 +410,20 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-
-
+    //Return the powerup gameobject.
+    private GameObject GetPowerup()
+    {
+        return GameObject.FindWithTag("Powerup");
+    }
+    
+    //Destroys a powerup if it's on field.
+    private void DestroyPowerup()
+    {
+        if (powerupScript.isPowerupOnField)
+        {
+            Destroy(GetPowerup());
+        }
+    }
 
 
 

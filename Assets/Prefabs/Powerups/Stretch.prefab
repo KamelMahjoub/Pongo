@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5021137528897782026}
   m_Layer: 2
   m_Name: Stretch
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96291158b0ee2ec448f12bf7cc18dd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupScript: {fileID: 0}
 --- !u!1 &4024177905789647662
 GameObject:
   m_ObjectHideFlags: 0
