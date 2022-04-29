@@ -18,9 +18,7 @@ namespace SlimUI.ModernMenu
         [SerializeField]
         private AudioSource hoverSound;
         [SerializeField]
-        private AudioSource sliderSound;
-        [SerializeField]
-        private AudioSource swooshSound;
+        private AudioSource clickSound;
         
         [Header("MENUS")]
         [SerializeField]
@@ -38,7 +36,6 @@ namespace SlimUI.ModernMenu
         [SerializeField]
         private GameObject matchCanvas;
         
-
         private void Awake()
         {
             Init();
@@ -105,7 +102,7 @@ namespace SlimUI.ModernMenu
         {
             StartCoroutine(CloseCanvasRoutine());
         }
-        
+
         //Quits the game
         public void QuitGame()
         {
@@ -128,18 +125,13 @@ namespace SlimUI.ModernMenu
             hoverSound.Play();
         }
 
-        //Plays a sound whenever the slider value changes
-        public void PlaySFXHover()
+        public void PlayClickSound()
         {
-            sliderSound.Play();
-        }
-
-        //Plays a sound whenever a menu is open
-        public void PlaySwoosh()
-        {
-            swooshSound.Play();
+            clickSound.Play();
         }
         
+
+   
         
 
       

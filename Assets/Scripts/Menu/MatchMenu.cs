@@ -89,6 +89,7 @@ public class MatchMenu : MonoBehaviour
     //Initializes the variables
     private void Init()
     {
+        canPowerup = true;
         SetPowerups();
         SetMatchAgainstPlayer();
         SetGoalsMode();
