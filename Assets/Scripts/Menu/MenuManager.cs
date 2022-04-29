@@ -125,6 +125,7 @@ namespace SlimUI.ModernMenu
             hoverSound.Play();
         }
 
+        //PLays a sound whenever a button is pressed.
         public void PlayClickSound()
         {
             clickSound.Play();

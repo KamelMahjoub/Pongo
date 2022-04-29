@@ -92,30 +92,37 @@ public class MatchUIManager : MonoBehaviour
         middleLine.SetActive(true);
     }
 
+    //Changes the countdown text value.
     public void ChangeCountdownText(String textToDisplay)
     {
         countdownText.text = textToDisplay;
     }
 
+    //Hides the countdown text.
     public void HideCountdownText()
     {
         countdownPanel.SetActive(false);
     }
+    
+    //Displays the countdown text.
     public void ShowCountdownText()
     {
         countdownPanel.SetActive(true);
     }
 
+    //Displays the post match menu.
     public void DisplayPostMatchCanvas()
     {
         postMatchPanel.SetActive(true);
     }
 
+    //Sets the value of the game result text.
     public void SetGameResult(string text)
     {
         gameResultText.SetText(text);
     }
 
+    //Moves the player back to the main menu.
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(menuScene);
@@ -125,50 +132,59 @@ public class MatchUIManager : MonoBehaviour
         }
     }
 
+    //Displays the pause menu.
     public void EnablePauseMenu()
     {
         pauseMenuCanvas.SetActive(true);
     }
 
+    //Hides the pause menu.
     public void DisablePauseMenu()
     {
         pauseMenuCanvas.SetActive(false);
     }
 
+    //Hides the quit menu.
     public void DisableQuitMenu()
     {
         quitPanel.SetActive(false);
         EnablePauseButtons();
     }
 
+    //Displays the quit menu.
     public void EnableQuitMenu()
     {
         quitPanel.SetActive(true);
         DisablePauseButtons();
     }
 
+    //Hides the pause menu buttons.
     private void DisablePauseButtons()
     {
         resumeButton.SetActive(false);
         quitButton.SetActive(false);
     }
 
+    //Displays the pause menu buttons.
     private void EnablePauseButtons()
     {
         resumeButton.SetActive(true);
         quitButton.SetActive(true);
     }
 
+    //Hides the line effect on the settings panel buttons.
     public void DisableLine()
     {
         middleLine.SetActive(false);
     }
 
+    //Displays the line effect on the settings panel buttons.
     public void EnableLine()
     {
         middleLine.SetActive(true);
     }
 
+    //Sets the value of the game mode text.
     public void SetGameModeText(string gameMode)
     {
         gameModeText.text = gameMode;

@@ -68,7 +68,7 @@ public class MatchManager : MonoBehaviour
     }
 
 
-    //Initializes the variables/properties
+    //Initializes the variables/properties.
     private void Init()
     {
         matchUIManager = GetComponent<MatchUIManager>();
@@ -93,7 +93,7 @@ public class MatchManager : MonoBehaviour
         SetPowerups();
     }
     
-    //Adds a point to the specified player
+    //Adds a point to the specified player.
     public void AddPoint(int playerNb)
     {
         if (playerNb == playerOneID)
@@ -107,19 +107,19 @@ public class MatchManager : MonoBehaviour
         matchUIManager.DisplayScore();
     }
     
-    //Sets the starting the position that the ball will spawn to
+    //Sets the starting the position that the ball will spawn to.
     public Vector2 StartingPosition()
     {
         return new Vector2(startingXPosition, startingYPosition);
     }
 
-    //Spawns the ball at the specified starting position
+    //Spawns the ball at the specified starting position.
     public void SpawnBall()
     {
         Instantiate(ball, StartingPosition(), ball.transform.rotation);
     }
     
-    //Plays a countdown at the start of the match
+    //Plays a countdown at the start of the match.
     private void StartingCountdown()
     {
         if (isCountdownRunning)
@@ -141,44 +141,44 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-    //Hides the initial countdown text
+    //Hides the initial countdown text.
     private void HideCountdownText()
     {
         matchUIManager.HideCountdownText();
     }
     
-    //Returns the number of seconds of a given time
+    //Returns the number of seconds of a given time.
     private int GetSeconds(float time)
     {
         return Mathf.FloorToInt(time % 60);
     }
     
-    //Returns the number of minutes of a given time
+    //Returns the number of minutes of a given time.
     private int GetMinutes(float time)
     {
         return Mathf.FloorToInt(time / 60);
     }
     
-    //Gets the goal limit selected in the match menu
+    //Gets the goal limit selected in the match menu.
     private int GetGoalsLimit()
     {
         return DataManager.Instance.goals;
     }
     
-    //Checks if the mode is goal limited
+    //Checks if the mode is goal limited.
     public bool IsGoalLimited()
     { 
         string goalMode = "GoalLimited";
         return DataManager.Instance.matchMode.Equals(goalMode);
     }
     
-    //Checks if any of the players has reached the goal limit
+    //Checks if any of the players has reached the goal limit.
     public bool HasReachedGoalLimit()
     {
         return playerOnePoints == GetGoalsLimit() || playerTwoPoints == GetGoalsLimit();
     }
 
-    //Checks if one of the player has reached the goal limit
+    //Checks if one of the player has reached the goal limit.
     private void CheckGoalModeResult()
     {
         if (playerOnePoints == GetGoalsLimit())
@@ -192,7 +192,7 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-    //Checks the result after the timer reaches 0
+    //Checks the result after the timer reaches 0.
     private void CheckTimeModeResult()
     {
         int drawID = 0;
@@ -211,7 +211,7 @@ public class MatchManager : MonoBehaviour
         }
     }
     
-    //Calls the appropriate check result method depending on the match type
+    //Calls the appropriate check result method depending on the match type.
     public void CheckResult()
     {
         if (IsGoalLimited())
@@ -224,7 +224,7 @@ public class MatchManager : MonoBehaviour
         }
     }
     
-    //Displays the match result
+    //Displays the match result.
     private void DisplayResult(int winnerID)
     {
         matchUIManager.DisableMatchUI();
@@ -240,7 +240,7 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-    //Pause the game whe the player uses the "Escape" button
+    //Pause the game whe the player uses the "Escape" button.
     private void PauseGame()
     {
         if (Input.GetKey(KeyCode.Escape))
@@ -260,7 +260,7 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-    //Resumes the game
+    //Resumes the game.
     public void ResumeGame()
     {
         matchUIManager.DisablePauseMenu();
@@ -276,7 +276,7 @@ public class MatchManager : MonoBehaviour
         }
     }
     
-    //Sets the selected game mode on the match interface
+    //Sets the selected game mode on the match interface.
     private void SetGameMode()
     {
         if (IsGoalLimited())
@@ -290,27 +290,28 @@ public class MatchManager : MonoBehaviour
             isTimerRunning = true;
         }
     }
-    //Freezes the game time
+    //Freezes the game time.
     private void FreezeGame()
     {
         Time.timeScale = 0;
         isGamePaused = true;
     }
 
-    //Unfreezes the game time
+    //Unfreezes the game time.
     public void UnfreezeGame()
     {
         Time.timeScale = 1;
         isGamePaused = false;
     }
 
-    //Returns the time selected in the match menu
+    //Returns the time selected in the match menu.
     private float GetTime()
     {
         int nbSeconds = 60;
         return DataManager.Instance.timeLimit * nbSeconds;
     }
     
+    //Checks if the time has ran out , else time will go down one second at a time.
     private void UpdateTime()
     {
         if (timeLimit < 1)
@@ -325,11 +326,13 @@ public class MatchManager : MonoBehaviour
         }
     }
 
+    //Checks if the player 2 is a human player or computer controlled.
     private bool IsPlayerTwoBot()
     {
         return DataManager.Instance.isBot;
     }
     
+    // Sets the proper script for the player 2 whether he is a player or a bot.
     private void SetPlayerTwo()
     {
         if (IsPlayerTwoBot())
@@ -344,11 +347,13 @@ public class MatchManager : MonoBehaviour
         }
     }
 
+    //Checks if the powerups are on.
     private bool ArePowerupsOn()
     {
         return DataManager.Instance.canPowerup;
     }
 
+    //Activates the powerups gameobject and scrip if they are on , else it will disable them.
     private void SetPowerups()
     {
         if (ArePowerupsOn())
@@ -363,27 +368,31 @@ public class MatchManager : MonoBehaviour
         }
     }
 
-
+    //Checks if a ball exists on the field.
     private bool DoesBallExists()
     {
         return GameObject.FindWithTag("Ball");
     }
 
+    //Returns the ball gameobject.
     private GameObject GetBall()
     {
         return GameObject.FindWithTag("Ball");
     }
     
+    //Checks if an extra ball exists on the field.
     private bool DoesExtraBallExists()
     {
         return GameObject.FindWithTag("ExtraBall");
     }
 
+    //Returns the extra ball;
     private GameObject GetExtraBall()
     {
         return GameObject.FindWithTag("ExtraBall");
     }
 
+    //Destroys the ball gameobject if it exists. If powerups are on and an extra ball exists on the field, it will destroy it too.
     private void DestroyBall()
     {
         if (DoesBallExists())

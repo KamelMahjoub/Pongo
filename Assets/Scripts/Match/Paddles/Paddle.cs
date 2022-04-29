@@ -13,6 +13,7 @@ public class Paddle : MonoBehaviour
         Init();
     }
 
+    //Initialized both player's rigidbody component.
     private void Init()
     {
         paddleRb = GetComponent<Rigidbody2D>();

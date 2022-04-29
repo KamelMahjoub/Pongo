@@ -88,6 +88,7 @@ public class Ball : MonoBehaviour
         ballRb.AddForce(force , ForceMode2D.Impulse);
     }
 
+    //Checks if the ball position has changes, else adds +1 to the internal cooldown value;
     private void CheckBallPosition()
     {
         float currentYPosition = ballRb.position.y;
@@ -101,12 +102,13 @@ public class Ball : MonoBehaviour
         }
     }
     
+    //Returns the y position of the ball from the last frame.
     private void GetLastPosition()
     {
         lastYPosition = ballRb.position.y;
     }
     
-
+    // If the internal cooldown has reached it's limit , pushes the ball a little bit to avoid the ball being stuck or ha having the same trajectory for a long time.
     private void PushBall()
     {
         int cooldownLimit = 5;
