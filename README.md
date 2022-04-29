@@ -1,5 +1,14 @@
 # Pongo
 
+## Project Information 
+
+ Play the classic game of Pong with various game modes and twists, against a friend or a computer.
+ 
+ This project is a learning project made with **Unity2D** in my path of learning ***Game Developemnt***.
+ 
+ You can try the game and download the pc version on [Itch.io](https://kamelmahjoub.itch.io/pongo)
+
+
 ## Game Description
  
  Enjoy the classic game of Pong against a computer or a friend.
@@ -18,13 +27,5 @@
  
  - From having multiballs to changing the size of the players, powerups are sure to add some fun twists and variety to the games.
  
- ## Project Information 
- 
- This project is a learning project made with **Unity2D** in my path to learning ***Game Developemnt***.
- 
- You can try the local build found in ***"Build\Pongo.exe"***.
- 
- Or try the Itch.io version : Here. 
-
 
  
