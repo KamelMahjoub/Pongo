@@ -1,0 +1,15 @@
+** MENU & BUTTONS ** 
+
+Created by SlimUI and can be found here : https://assetstore.unity.com/packages/tools/gui/3d-modern-menu-ui-116144
+
+** ICONS **
+
+Github Icon : Created by riajuliaslam and can be found here : https://www.flaticon.com/free-icons/github
+
+Linkedin Icon : Created by riajuliaslam and can be found here : https://www.flaticon.com/free-icons/linkedin
+
+Facebook Icon : Created by Pixel Perfect and can be found here : https://www.flaticon.com/free-icons/facebook
+
+** MAIN MENU MUSIC **
+
+Created by Maxstack and can be found here : https://opengameart.org/content/through-space
