@@ -28,5 +28,10 @@
  
  - From having multiballs to changing the size of the players, powerups are sure to add some fun twists and variety to the games.
  
+ ##Gameplay Video 
+ 
+[![Link to Pongo's gameplay video](https://img.youtube.com/vi/nZSyJVilASc/0.jpg)](https://www.youtube.com/watch?v=nZSyJVilASc)
+ 
+ 
 
  
