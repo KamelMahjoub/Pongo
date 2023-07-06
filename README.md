@@ -1,21 +1,14 @@
 ## About This Project
 
-This project is a recreation of the classic game **Pong**, created for learning purposes and made with **Unity2D**.
+**Noxar : The Crimson Moon** is a 2D mobile platformer game that I developed as part of my Master's Thesis in Mobile Application Development, which is titled "***Designing and Developing a Mobile Game using Unity***". It served as my entry into the world of game development.
 
-In **Pongo**, players can choose to play against another person locally or against an AI-controlled player, with the choice to compete in two **game modes**:
+In **Noxar : The Crimson Moon**, players assume the role of "**Noxar**", a hero wielding swords and magic, as he investigates the criminal organization known as "**The Crimson Moon**". It offers an engaging gameplay experience with a combination of platformer mechanics and RPG elements.
 
-- The first mode is called "***Time limited***". It's a mode where the players compete within a specific time frame,and games may end with one of the players winning or in a draw.
-- The second mode is called "***Goal Limited***". It's a mode where the first player to reach a target score wins. 
-
-The game also features **power ups** that can be turned on or off in the match settings screen. These power ups randomly appear in the match at a random position, offering bonuses like extra balls or paddle size changes upon collision with the ball. 
+Throughout the game, players guide "**Noxar**" through various levels, battling monsters and overcoming obstacles. The hero collects coins that can be spent at a shopkeeper's mysterious store, where various enchanted items are available to help "**Noxar**" grow stronger in his quest.
 
 ## Links
 
- You can try the game and download the pc version on [Itch.io](https://kamelmahjoub.itch.io/pongo).
- 
- Source code can be downloaded [here](https://github.com/KamelMahjoub/Pongo/releases).
-
- Further project details can be found [here](https://kamelmahjoub.wixsite.com/portfolio/pongo). 
+ Further project details can be found [here](https://kamelmahjoub.wixsite.com/portfolio/noxar). 
 
  For contact info, and more projects, please visit my [portfolio](https://kamelmahjoub.wixsite.com/portfolio).
 
