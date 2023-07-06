@@ -17,7 +17,7 @@ The game also features **power ups** that can be turned on or off in the match s
 
  Further project details can be found [here](https://kamelmahjoub.wixsite.com/portfolio/pongo). 
 
- For contact info, and more project, please visit my [portfolio](https://kamelmahjoub.wixsite.com/portfolio).
+ For contact info, and more projects, please visit my [portfolio](https://kamelmahjoub.wixsite.com/portfolio).
 
 
  
