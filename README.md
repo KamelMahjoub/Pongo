@@ -12,7 +12,7 @@ The game also features **power ups** that can be turned on or off in the match s
 
 ## Links
 
- Play the game [here](https://kamelmahjoub.itch.io/pongo).
+ Play the game on [itch.io](https://kamelmahjoub.itch.io/pongo).
 
  Further project details can be found [here](https://kamelmahjoub.wixsite.com/portfolio/pongo). 
 
